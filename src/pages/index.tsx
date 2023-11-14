@@ -5,6 +5,7 @@ import Image from "next/image";
 import developer_pic from "../../public/developer_pic.png";
 import AnimatedText from "@/components/AnimatedText";
 import Link from "next/link";
+import { ArrowSquareOut} from "@phosphor-icons/react";
 
 export const metadata: Metadata = {
     title: "Nassuel Personal Portfolio V2",
@@ -36,7 +37,7 @@ export default function Home() {
                         <div className="w-1/2 flex flex-col items-center self-center">
                             <AnimatedText
                                 text="Full-Stack Development with a Data-Driven Approach"
-                                className="!text-left text-6xl"
+                                className="!text-left !text-6xl"
                             />
                             <p className="my-4 text-base font-medium">
                                 As a passionate full-stack developer with
@@ -45,18 +46,26 @@ export default function Home() {
                                 web applications. Here I showcase my expertise
                                 in React, web development, and Next.js.
                             </p>
-                            <div className="flex items-center self-start mt-2">
+                            <div className="flex items-center self-start mt-2 gap-2">
                                 <Link
                                     href="/NassuelValeraCuevasResume.pdf"
                                     target={"_blank"}
-                                    className="flex items-center bg-black text-white dark:bg-white dark:text-black p-2.5 px-6 rounded-lg text-lg font-semibold hover:bg-white hover:text-black dark:hover:bg-black dark:hover:text-white"
+                                    className="flex items-center bg-black text-white
+                                    dark:bg-white dark:text-black p-2.5 px-6 rounded-lg text-lg font-semibold
+                                    hover:bg-white hover:text-black dark:hover:bg-black dark:hover:text-white
+                                    border border-solid border-transparent hover:border-black"
                                 >
                                     Resume
+                                    <ArrowSquareOut
+                                        size={32}
+                                        className={'w-6 ml-1'}
+                                    />
                                 </Link>
                                 <Link
                                     href="mailto:valeranassuel@gmail.com"
                                     target={"_blank"}
-                                    className="flex items-center bg-black text-white dark:bg-white dark:text-black p-2.5 px-6 rounded-lg text-lg font-semibold hover:bg-white hover:text-black dark:hover:bg-black dark:hover:text-white"
+                                    className="ml-4 text-lg font-medium capitalize text-dark underline
+                                    hover:scale-110"
                                 >
                                     Contact
                                 </Link>

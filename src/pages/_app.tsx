@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import NavBar from "@/components/NavBar";
 import "@/styles/globals.css";
 import { Metadata } from "next";
@@ -25,6 +26,7 @@ export default function App({
             <main className={`${nunito.variable} font-nuni min-h-screen w-full bg-white dark:bg-black`}>
                 <NavBar />
                 <Component {...pageProps} />
+                <Footer text={undefined} className={""} />
             </main>
         </>
     );

@@ -9,7 +9,7 @@ const modifyDarkClass = (check: string) => {
 };
 
 export default function useThemeSwitcher(): [string, Dispatch<SetStateAction<string>>] {
-    const preferDarkQuery = "(prefer-color-scheme: dark)";
+    const preferDarkQuery = "(prefers-color-scheme: dark)";
     const [mode, setMode] = useState("");
 
     useEffect(() => {
