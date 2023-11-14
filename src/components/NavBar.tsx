@@ -63,19 +63,29 @@ export default function NavBar() {
                     <Link
                         href="https://www.linkedin.com/in/nassuelvc/"
                         target="_blank"
+                        className="blur-[1px] hover:blur-none"
                     >
                         <LinkedinLogo />
                     </Link>
-                    <Link href="https://github.com/Nassuel" target="_blank">
+                    <Link
+                        href="https://github.com/Nassuel"
+                        target="_blank"
+                        className="blur-[1px] hover:blur-none"
+                    >
                         <GithubLogo />
                     </Link>
                     <Link
                         href="https://www.instagram.com/godspeed.pictura/"
                         target="_blank"
+                        className="blur-[1px] hover:blur-none"
                     >
                         <InstagramLogo />
                     </Link>
-                    <Link href="https://bento.me/nassuel" target="_blank">
+                    <Link
+                        href="https://bento.me/nassuel"
+                        target="_blank"
+                        className="blur-[1px] hover:blur-none"
+                    >
                         <SquareHalfBottom />
                     </Link>
 
@@ -104,7 +114,7 @@ const Logo = () => {
         <div className="flex items-center justify-center mt-2">
             <Link
                 href={"/"}
-                className="w-16 h-16 flex items-center justify-center rounded-full text-xl text-blue-700 font-bold bg-black dark:bg-white dark:hover:bg-amber-300 hover:scale-125 hover:bg-amber-300 transition-colors"
+                className="w-16 h-16 flex items-center justify-center rounded-full text-2xl text-blue-700 font-bold bg-black dark:bg-white dark:hover:bg-amber-300 hover:scale-125 hover:bg-amber-300 transition-colors"
             >
                 NVC
             </Link>

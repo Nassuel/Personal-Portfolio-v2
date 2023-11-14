@@ -20,6 +20,15 @@ const config: Config = {
             fontFamily: {
                 nuni: ["var(--font-nuni)", ...fontFamily.sans],
             },
+            keyframes: {
+                'vanish': {
+                    '0%': { transform: 'opacity(0)'},
+                    '100%': { transform: 'opacity(100)'},
+                }
+            },
+            animation: {
+                'vanish': 'vanish 3s linear finite'
+            }
         },
     },
     plugins: [],
