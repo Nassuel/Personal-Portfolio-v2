@@ -1,14 +1,25 @@
 import Layout from "@/components/Layout";
 import { Metadata } from "next";
 import Image from "next/image";
-import developer_pic from "@/../public/developer_pic.png";
+import developer_pic from "@/../public/images/stock/developer_pic.png";
 import AnimatedText from "@/components/AnimatedText";
 import Link from "next/link";
 import { ArrowSquareOut } from "@phosphor-icons/react";
+import Head from "next/head";
+
+export const metadata: Metadata = {
+    title: "NVC | About",
+    description: "Nassuel Valera Cuevas Personal Portfolio V2 | Home",
+    icons: "/favicon.ico",
+};
 
 export default function Home() {
     return (
         <>
+            <Head>
+                <title>NVC | Welcome!</title>
+                <meta name="description" content={metadata.description!} />
+            </Head>
             <main className="flex items-center text-black dark:text-white w-full min-h-screen">
                 <Layout className="pt-0">
                     <div className="flex items-center justify-between w-full">
@@ -34,17 +45,17 @@ export default function Home() {
                             </p>
                             <div className="flex items-center self-start mt-2 gap-2">
                                 <Link
-                                    href="/NassuelValeraCuevasResume.pdf"
+                                    href="/files/NassuelValeraCuevasResume.pdf"
                                     target={"_blank"}
                                     className="flex items-center bg-black text-white
                                     dark:bg-white dark:text-black p-2.5 px-6 rounded-lg text-lg font-semibold
                                     hover:bg-white hover:text-black dark:hover:bg-black dark:hover:text-white
-                                    border border-solid border-transparent hover:border-black"
+                                    border border-solid border-transparent hover:border-black dark:hover:border-white"
                                 >
                                     Resume
                                     <ArrowSquareOut
                                         size={32}
-                                        className={'w-6 ml-1'}
+                                        className={"w-6 ml-1"}
                                     />
                                 </Link>
                                 <Link

@@ -1,31 +1,46 @@
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 
-const modifyDarkClass = (check: string) => {
-    if (check === "dark") {
-        document.documentElement.classList.add("dark");
-    } else {
-        document.documentElement.classList.remove("dark");
-    }
-};
-
-export default function useThemeSwitcher(): [string, Dispatch<SetStateAction<string>>] {
+export default function useThemeSwitcher(): [
+    string,
+    Dispatch<SetStateAction<string>>
+] {
     const preferDarkQuery = "(prefers-color-scheme: dark)";
     const [mode, setMode] = useState("");
 
     useEffect(() => {
         const mediaQuery = window.matchMedia(preferDarkQuery);
         const userPref = window.localStorage.getItem("theme");
+        console.log("useThemeSwitcher", mediaQuery, userPref);
+
+        // const modifyDarkClass = (check: string) => {
+        //     if (check === "dark") {
+        //         document.documentElement.classList.add("dark");
+        //     } else {
+        //         document.documentElement.classList.remove("dark");
+        //     }
+        // };
 
         const handleChange = () => {
             if (userPref) {
                 // User Pref variable exists in local storage
+                console.log("Went in on load")
                 let check = userPref === "dark" ? "dark" : "light";
                 setMode(check);
-                modifyDarkClass(check);
+                // modifyDarkClass(check);
+                if (check === "dark") {
+                    document.documentElement.classList.add("dark");
+                } else {
+                    document.documentElement.classList.remove("dark");
+                }
             } else {
                 let check = mediaQuery.matches ? "dark" : "light";
                 setMode(check);
-                modifyDarkClass(check);
+                // modifyDarkClass(check);
+                if (check === "dark") {
+                    document.documentElement.classList.add("dark");
+                } else {
+                    document.documentElement.classList.remove("dark");
+                }
             }
         };
 
