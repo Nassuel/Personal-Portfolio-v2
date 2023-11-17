@@ -1,16 +1,18 @@
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 
+type Theme = "dark" | "light";
+
 export default function useThemeSwitcher(): [
     string,
-    Dispatch<SetStateAction<string>>
+    Dispatch<SetStateAction<Theme>>
 ] {
     const preferDarkQuery = "(prefers-color-scheme: dark)";
-    const [mode, setMode] = useState("");
+    const [mode, setMode] = useState<Theme>("light");
 
     useEffect(() => {
         const mediaQuery = window.matchMedia(preferDarkQuery);
         const userPref = window.localStorage.getItem("theme");
-        console.log("useThemeSwitcher", mediaQuery, userPref);
+        // console.log("useThemeSwitcher", mediaQuery, userPref);
 
         // const modifyDarkClass = (check: string) => {
         //     if (check === "dark") {
@@ -21,10 +23,11 @@ export default function useThemeSwitcher(): [
         // };
 
         const handleChange = () => {
+            let check: Theme;
             if (userPref) {
                 // User Pref variable exists in local storage
-                console.log("Went in on load")
-                let check = userPref === "dark" ? "dark" : "light";
+                console.log("Went in on load");
+                check = userPref === "dark" ? "dark" : "light";
                 setMode(check);
                 // modifyDarkClass(check);
                 if (check === "dark") {
@@ -33,7 +36,7 @@ export default function useThemeSwitcher(): [
                     document.documentElement.classList.remove("dark");
                 }
             } else {
-                let check = mediaQuery.matches ? "dark" : "light";
+                check = mediaQuery.matches ? "dark" : "light";
                 setMode(check);
                 // modifyDarkClass(check);
                 if (check === "dark") {
@@ -53,7 +56,9 @@ export default function useThemeSwitcher(): [
         if (mode === "dark") {
             window.localStorage.setItem("theme", "dark");
             document.documentElement.classList.add("dark");
-        } else {
+        }
+
+        if (mode === "light") {
             window.localStorage.setItem("theme", "light");
             document.documentElement.classList.remove("dark");
         }

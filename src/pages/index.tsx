@@ -1,7 +1,7 @@
 import Layout from "@/components/Layout";
 import { Metadata } from "next";
 import Image from "next/image";
-import developer_pic from "@/../public/images/stock/developer_pic.png";
+import developePic from "@/../public/images/stock/developer_pic.png";
 import AnimatedText from "@/components/AnimatedText";
 import Link from "next/link";
 import { ArrowSquareOut } from "@phosphor-icons/react";
@@ -10,7 +10,7 @@ import Head from "next/head";
 export const metadata: Metadata = {
     title: "NVC | About",
     description: "Nassuel Valera Cuevas Personal Portfolio V2 | Home",
-    icons: "/favicon.ico",
+    icons: "/icons/favicon.ico",
 };
 
 export default function Home() {
@@ -18,6 +18,7 @@ export default function Home() {
         <>
             <Head>
                 <title>NVC | Welcome!</title>
+                <link rel="icon" href="/icons/favicon.ico" type="image/x-icon" />
                 <meta name="description" content={metadata.description!} />
             </Head>
             <main className="flex items-center text-black dark:text-white w-full min-h-screen">
@@ -25,8 +26,9 @@ export default function Home() {
                     <div className="flex items-center justify-between w-full">
                         <div className="w-1/2">
                             <Image
-                                src={developer_pic}
+                                src={developePic}
                                 priority={true}
+                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
                                 alt="Home page image"
                                 className="w-full h-auto"
                             />

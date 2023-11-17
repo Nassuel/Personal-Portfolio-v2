@@ -7,11 +7,13 @@ import React from "react";
 import BusinessProfilePic from "@/../public/images/profile/OkaygeBusinessProfilePic.jpg";
 import { Atom, FileTsx, IconContext, Wind } from "@phosphor-icons/react";
 import useThemeSwitcher from "@/components/hooks/useThemeSwitcher";
+import Skills from "@/components/Skills";
+import Experience from "@/components/Experience";
 
 export const metadata: Metadata = {
     title: "NVC | About",
     description: "Nassuel Valera Cuevas Personal Portfolio V2 | About",
-    icons: "/favicon.ico",
+    icons: "/icons/favicon.ico",
 };
 
 const CustomParagraph = ({
@@ -63,6 +65,7 @@ export default function About() {
         <>
             <Head>
                 <title>NVC | About</title>
+                <link rel="icon" href="/icons/favicon.ico" type="image/x-icon" />
                 <meta name="description" content={metadata.description!} />
             </Head>
             <main className="flex w-full flex-col items-center justify-center">
@@ -83,7 +86,8 @@ export default function About() {
                             <Image
                                 src={BusinessProfilePic}
                                 priority={true}
-                                alt={"Nassuel Valera Cuevas"}
+                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                alt={"Nassuel Valera Cuevas profile pic"}
                                 className="w-full h-auto rounded-2xl"
                             />
                         </div>
@@ -103,7 +107,7 @@ export default function About() {
                                     {/* <Atom className="text-dark dark:text-white" /> */}
                                     {/* TODO: Figure out coloring bg-[#149eca]*/}
                                     <Image
-                                        src={"/react.svg"}
+                                        src={"/icons/react.svg"}
                                         width={50}
                                         height={50}
                                         alt={"react svg icon"}
@@ -113,7 +117,7 @@ export default function About() {
                                 </div>
                                 <div className="flex flex-col items-center justify-center">
                                     <Image
-                                        src={"/next.svg"}
+                                        src={"/icons/next.svg"}
                                         width={50}
                                         height={50}
                                         alt={"next js svg icon"}
@@ -123,7 +127,7 @@ export default function About() {
                                 </div>
                                 <div className="flex flex-col items-center justify-center">
                                     <Image
-                                        src={"/vercel.svg"}
+                                        src={"/icons/vercel.svg"}
                                         width={50}
                                         height={50}
                                         alt={"next js svg icon"}
@@ -142,6 +146,8 @@ export default function About() {
                             </IconContext.Provider>
                         </div>
                     </div>
+                    <Skills />
+                    <Experience />
                 </Layout>
             </main>
         </>
