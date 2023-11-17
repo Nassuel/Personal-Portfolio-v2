@@ -21,7 +21,7 @@ export default function Home() {
                 <link rel="icon" href="/icons/favicon.ico" type="image/x-icon" />
                 <meta name="description" content={metadata.description!} />
             </Head>
-            <main className="flex items-center text-black dark:text-white w-full min-h-screen">
+            <main className="flex items-center w-full min-h-screen">
                 <Layout className="pt-0">
                     <div className="flex items-center justify-between w-full">
                         <div className="w-1/2">

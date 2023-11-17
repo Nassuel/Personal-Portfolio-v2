@@ -6,9 +6,9 @@ import Image from "next/image";
 import React from "react";
 import BusinessProfilePic from "@/../public/images/profile/OkaygeBusinessProfilePic.jpg";
 import { Atom, FileTsx, IconContext, Wind } from "@phosphor-icons/react";
-import useThemeSwitcher from "@/components/hooks/useThemeSwitcher";
 import Skills from "@/components/Skills";
 import Experience from "@/components/Experience";
+import useThemeSwitcher from "@/hooks/useThemeSwitcher";
 
 export const metadata: Metadata = {
     title: "NVC | About",
@@ -23,11 +23,7 @@ const CustomParagraph = ({
     text: any;
     className?: string;
 }) => {
-    return (
-        <p className={`font-medium text-black dark:text-white ${className}`}>
-            {text}
-        </p>
-    );
+    return <p className={`font-medium ${className}`}>{text}</p>;
 };
 
 const CustomSubheader = ({
@@ -60,46 +56,59 @@ const lengthyTexts = {
 };
 
 export default function About() {
-    const [mode, setMode] = useThemeSwitcher();
+    const [theme, setTheme, toggleTheme] = useThemeSwitcher() as [
+        string,
+        any,
+        () => void
+    ];
     return (
         <>
-            <Head>
-                <title>NVC | About</title>
-                <link rel="icon" href="/icons/favicon.ico" type="image/x-icon" />
-                <meta name="description" content={metadata.description!} />
-            </Head>
-            <main className="flex w-full flex-col items-center justify-center">
-                <Layout className="pt-16 mb-8">
-                    <AnimatedText
-                        text="Welcome to My World"
-                        className="mb-16"
+            <IconContext.Provider
+                value={{
+                    size: 60,
+                    weight: "light",
+                    color: theme === "dark" ? "#ffffff" : "#000000",
+                }}
+            >
+                <Head>
+                    <title>NVC | About</title>
+                    <link
+                        rel="icon"
+                        href="/icons/favicon.ico"
+                        type="image/x-icon"
                     />
-                    <div className="grid w-full grid-cols-8 gap-16">
-                        <div className="col-span-3 flex flex-col item-start justify-start gap-4">
-                            <CustomSubheader text="about me" />
-                            <CustomParagraph text={lengthyTexts.paragraph1} />
-                            <CustomParagraph text={lengthyTexts.paragraph2} />
-                            <CustomParagraph text={lengthyTexts.paragraph3} />
-                        </div>
-                        <div className="p-8 col-span-3 relative h-max rounded-2xl border-2 border-solid border-black dark:border-white">
-                            <div className="absolute top-0 -right-3 -z-10 w-[102%] h-[103%] rounded-2xl bg-white dark:bg-black" />
-                            <Image
-                                src={BusinessProfilePic}
-                                priority={true}
-                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                alt={"Nassuel Valera Cuevas profile pic"}
-                                className="w-full h-auto rounded-2xl"
-                            />
-                        </div>
-                        <div className="col-span-2 flex flex-col items-center justify-between text-black dark:text-white">
-                            <IconContext.Provider
-                                value={{
-                                    size: 60,
-                                    weight: "duotone",
-                                    color:
-                                        mode === "dark" ? "#ffffff" : "#000000",
-                                }}
-                            >
+                    <meta name="description" content={metadata.description!} />
+                </Head>
+                <main className="flex w-full flex-col items-center justify-center">
+                    <Layout className="pt-16 mb-8">
+                        <AnimatedText
+                            text="Welcome to My World"
+                            className="mb-16"
+                        />
+                        <div className="grid w-full grid-cols-8 gap-16">
+                            <div className="col-span-3 flex flex-col item-start justify-start gap-4">
+                                <CustomSubheader text="about me" />
+                                <CustomParagraph
+                                    text={lengthyTexts.paragraph1}
+                                />
+                                <CustomParagraph
+                                    text={lengthyTexts.paragraph2}
+                                />
+                                <CustomParagraph
+                                    text={lengthyTexts.paragraph3}
+                                />
+                            </div>
+                            <div className="p-8 col-span-3 relative h-max rounded-2xl border-2 border-solid border-black dark:border-white">
+                                <div className="absolute top-0 -right-3 -z-10 w-[102%] h-[103%] rounded-2xl bg-white dark:bg-black" />
+                                <Image
+                                    src={BusinessProfilePic}
+                                    priority={true}
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                    alt={"Nassuel Valera Cuevas profile pic"}
+                                    className="w-full h-auto rounded-2xl"
+                                />
+                            </div>
+                            <div className="col-span-2 flex flex-col items-center justify-between">
                                 <div>
                                     <CustomSubheader text="website crafted with" />
                                 </div>
@@ -111,7 +120,7 @@ export default function About() {
                                         width={50}
                                         height={50}
                                         alt={"react svg icon"}
-                                        className="text-dark dark:text-white w-full h-full"
+                                        className="w-full h-full"
                                     />
                                     {/* <span>React</span> */}
                                 </div>
@@ -121,7 +130,7 @@ export default function About() {
                                         width={50}
                                         height={50}
                                         alt={"next js svg icon"}
-                                        className="text-dark dark:text-white w-full h-full"
+                                        className="w-full h-full"
                                     />
                                     {/* <span>Next.js</span> */}
                                 </div>
@@ -131,25 +140,27 @@ export default function About() {
                                         width={50}
                                         height={50}
                                         alt={"next js svg icon"}
-                                        className="text-dark dark:text-white w-full h-full"
+                                        className="w-full h-full"
                                     />
                                     {/* <span>Next.js</span> */}
                                 </div>
                                 <div className="flex flex-col items-center justify-center">
-                                    <Wind className="text-dark dark:text-white w-full h-full" />
+                                    <Wind className="w-full h-full"
+                                    />
                                     {/* <span>Tailwind CSS</span> */}
                                 </div>
                                 <div className="flex flex-col items-center justify-center">
-                                    <FileTsx className="text-dark dark:text-white w-full h-full" />
+                                    <FileTsx className="w-full h-full"
+                                    />
                                     {/* <span>Typescript</span> */}
                                 </div>
-                            </IconContext.Provider>
+                            </div>
                         </div>
-                    </div>
-                    <Skills />
-                    <Experience />
-                </Layout>
-            </main>
+                        <Skills />
+                        <Experience />
+                    </Layout>
+                </main>
+            </IconContext.Provider>
         </>
     );
 }

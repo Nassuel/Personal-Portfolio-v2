@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import useThemeSwitcher from "./hooks/useThemeSwitcher";
 import {
     GithubLogo,
     IconContext,
@@ -11,6 +10,7 @@ import {
     SquareHalfBottom,
     SunHorizon,
 } from "@phosphor-icons/react";
+import useThemeSwitcher from "../hooks/useThemeSwitcher";
 
 const CustomLink = ({
     href,
@@ -24,10 +24,7 @@ const CustomLink = ({
     const router = useRouter();
 
     return (
-        <Link
-            href={href}
-            className={`${className} relative group dark:text-white text-black`}
-        >
+        <Link href={href} className={`${className} relative group`}>
             {title}
 
             <span
@@ -43,14 +40,14 @@ const CustomLink = ({
 };
 
 export default function NavBar() {
-    const [mode, setMode] = useThemeSwitcher();
+    const [theme, setTheme, toggleTheme] = useThemeSwitcher() as [string, any, () => void];
 
     return (
         <IconContext.Provider
             value={{
                 size: 32,
                 weight: "light",
-                color: mode === "dark" ? "#ffffff" : "#000000",
+                color: theme === "dark" ? "#ffffff" : "#000000",
             }}
         >
             <header className="w-full px-32 py-8 font-medium flex items-center justify-between">
@@ -89,12 +86,8 @@ export default function NavBar() {
                         <SquareHalfBottom />
                     </Link>
 
-                    <button
-                        onClick={() =>
-                            setMode(mode === "light" ? "dark" : "light")
-                        }
-                    >
-                        {mode === "dark" ? (
+                    <button onClick={toggleTheme}>
+                        {theme === "dark" ? (
                             <SunHorizon size={42} color="#ffffff" />
                         ) : (
                             <MoonStars size={42} color="#000000" />

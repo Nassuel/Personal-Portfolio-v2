@@ -18,7 +18,7 @@ export default function App({
 }) {
     return (
         <>
-            <main className={`${nunito.variable} font-nuni min-h-screen w-full bg-white dark:bg-black`}>
+            <main className={`${nunito.variable} font-nuni min-h-screen w-full bg-white dark:bg-black text-black dark:text-white`}>
                 <NavBar />
                 <Component {...pageProps} />
                 <Footer />
