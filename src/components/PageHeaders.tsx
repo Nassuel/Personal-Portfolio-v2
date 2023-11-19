@@ -1,4 +1,4 @@
-export default function AnimatedText({
+export default function CustomHeader({
     text,
     className = "",
 }: {

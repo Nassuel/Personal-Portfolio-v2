@@ -54,7 +54,7 @@ export default function NavBar() {
                 <nav className="flex items-center gap-4">
                     <CustomLink href="/" title="Home" />
                     <CustomLink href="/about" title="About" />
-                    <CustomLink href="/projects" title="Projects" />
+                    {/* <CustomLink href="/projects" title="Projects" /> */}
                 </nav>
                 <nav className="flex items-center justify-between gap-4">
                     <Link

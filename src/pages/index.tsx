@@ -2,7 +2,7 @@ import Layout from "@/components/Layout";
 import { Metadata } from "next";
 import Image from "next/image";
 import developePic from "@/../public/images/stock/developer_pic.png";
-import AnimatedText from "@/components/AnimatedText";
+import CustomHeader from "@/components/PageHeaders";
 import Link from "next/link";
 import { ArrowSquareOut } from "@phosphor-icons/react";
 import Head from "next/head";
@@ -28,13 +28,12 @@ export default function Home() {
                             <Image
                                 src={developePic}
                                 priority={true}
-                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
                                 alt="Home page image"
-                                className="w-full h-auto"
+                                className="md:w-screen lg:w-[50vw] w-[50vw] h-auto"
                             />
                         </div>
                         <div className="w-1/2 flex flex-col items-center self-center">
-                            <AnimatedText
+                            <CustomHeader
                                 text="Full-Stack Development with a Data-Driven Approach"
                                 className="!text-left !text-6xl"
                             />
