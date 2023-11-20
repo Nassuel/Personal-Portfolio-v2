@@ -6,11 +6,14 @@ import {
     IconContext,
     InstagramLogo,
     LinkedinLogo,
+    List,
     MoonStars,
     SquareHalfBottom,
     SunHorizon,
+    X,
 } from "@phosphor-icons/react";
 import useThemeSwitcher from "../hooks/useThemeSwitcher";
+import { useState } from "react";
 
 const CustomLink = ({
     href,
@@ -40,7 +43,17 @@ const CustomLink = ({
 };
 
 export default function NavBar() {
-    const [theme, setTheme, toggleTheme] = useThemeSwitcher() as [string, any, () => void];
+    const [theme, setTheme, toggleTheme] = useThemeSwitcher() as [
+        string,
+        any,
+        () => void
+    ];
+    const [isOverflowMenuOpen, setIsOverflowMenuOpen] =
+        useState<boolean>(false);
+
+    const handleOverflowMenuClick = () => {
+        setIsOverflowMenuOpen(!isOverflowMenuOpen);
+    };
 
     return (
         <IconContext.Provider
@@ -51,10 +64,30 @@ export default function NavBar() {
             }}
         >
             <header className="w-full px-32 py-8 font-medium flex items-center justify-between">
+                <button
+                    className="flex flex-col justify-center items-center
+                        transition-all duration-300 ease-in"
+                    onClick={handleOverflowMenuClick}
+                >
+                    {isOverflowMenuOpen ? (
+                        <X
+                            color={`${
+                                theme === "dark" ? "#ffffff" : "#000000"
+                            }`}
+                        />
+                    ) : (
+                        <List
+                            color={`${
+                                theme === "dark" ? "#ffffff" : "#000000"
+                            }`}
+                        />
+                    )}
+                </button>
+
                 <nav className="flex items-center gap-4">
                     <CustomLink href="/" title="Home" />
                     <CustomLink href="/about" title="About" />
-                    {/* <CustomLink href="/projects" title="Projects" /> */}
+                    <CustomLink href="/hobbies" title="Hobbies" />
                 </nav>
                 <nav className="flex items-center justify-between gap-4">
                     <Link
@@ -107,7 +140,7 @@ const Logo = () => {
         <div className="flex items-center justify-center mt-2">
             <Link
                 href={"/"}
-                className="w-16 h-16 flex items-center justify-center rounded-full text-2xl text-blue-700 font-bold bg-black dark:bg-white dark:hover:bg-amber-300 hover:scale-125 hover:bg-amber-300 transition-colors"
+                className="w-16 h-16 flex items-center justify-center rounded-full text-2xl text-slate-300 dark:text-black font-bold bg-black dark:bg-white dark:hover:bg-amber-300 hover:scale-125 hover:bg-amber-300 transition-colors"
             >
                 NVC
             </Link>

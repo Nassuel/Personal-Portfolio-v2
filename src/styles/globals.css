@@ -30,3 +30,12 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+.vertical-timeline-element-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}

@@ -54,11 +54,7 @@ export default function Experience() {
                                 />
                             }
                             iconStyle={{
-                                background:
-                                    theme === "light" ? "white" : "black",
-                                fontSize: "1.5rem",
-                                textAlign: "center",
-                                position: "absolute",
+                                background: theme === "light" ? "white" : "black",
                                 padding: obj.icon.padding,
                             }}
                             iconOnClick={() => (

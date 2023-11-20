@@ -21,14 +21,22 @@ const config: Config = {
                 nuni: ["var(--font-nuni)", ...fontFamily.sans],
             },
             keyframes: {
-                'vanish': {
-                    '0%': { transform: 'opacity(0)'},
-                    '100%': { transform: 'opacity(100)'},
-                }
+                vanish: {
+                    "0%": { transform: "opacity(0)" },
+                    "100%": { transform: "opacity(100)" },
+                },
             },
             animation: {
-                'vanish': 'vanish 3s linear finite'
-            }
+                vanish: "vanish 3s linear finite",
+            },
+        },
+        screens: {
+            "2xl": { max: "1535px" }, // => @media (max-width: 1535px) { ... }
+            xl: { max: "1279px" }, // => @media (max-width: 1279px) { ... }
+            lg: { max: "1023px" }, // => @media (max-width: 1023px) { ... }
+            md: { max: "767px" }, // => @media (max-width: 767px) { ... }
+            sm: { max: "639px" }, // => @media (max-width: 639px) { ... }
+            xs: { max: "479px" }, // => @media (max-width: 479px) { ... }
         },
     },
     plugins: [],

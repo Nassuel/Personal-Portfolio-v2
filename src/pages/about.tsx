@@ -59,7 +59,7 @@ export default function About() {
                 }}
             >
                 <Head>
-                    <title>NVC | About</title>
+                    <title>NVC | About 📖</title>
                     <link
                         rel="icon"
                         href="/icons/favicon.ico"

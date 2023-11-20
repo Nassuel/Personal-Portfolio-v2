@@ -11,7 +11,7 @@ export default function Skills() {
                     {skillsData.map((skill, index) => (
                         <li
                             key={index}
-                            className="bg-[#f3f4f6] border border-black/[.1] dark:border-white/[.9] rounded-xl px-5 py-3"
+                            className="odd:bg-[#f3f4f6] even:bg-slate-300 border border-black/[.1] dark:border-white/[.9] rounded-xl px-5 py-3"
                         >
                             {skill}
                         </li>
