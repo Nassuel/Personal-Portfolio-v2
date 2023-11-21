@@ -6,7 +6,7 @@ export default function CustomHeader({
     className?: string;
 }) {
     return (
-        <div className="w-full mx-auto py-2 flex items-center justify-center text-center overflow-hidden">
+        <div className="w-full mx-auto py-2 flex items-center justify-center text-center overflow-hidden sm:py-0">
             <h1
                 className={`inline-block w-full font-bold capitalize text-7xl animation-vanish ${className}`}
             >
