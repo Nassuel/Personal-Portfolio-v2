@@ -65,38 +65,102 @@ export const experiencesData = [
 ] as const;
 
 export const skillsData = [
-    "JavaScript",
-    "TypeScript",
-    "Python",
-    "Next.js",
-    "Node.js",
-    "AngularJS",
-    "Agile",
-    "Apache Spark",
-    "AWS",
-    "Confluence",
-    "Data Structures & Algorithms",
-    "Development Operations (DevOps)",
-    "Docker",
-    "Figma",
-    "Heroku",
-    "JavaScript",
-    "Git",
-    "HTML/CSS",
-    "Linux/Unix",
-    "Microsoft Azure",
-    "Pandas",
-    "Postman",
-    "React",
-    "Kubernetes",
-    "Python",
-    "TypeScript",
-    "Vue.js",
-    "Excel/Numbers/Sheets",
-    "Express.js",
-    "Firebase",
-    "Nest.js",
-    "Webpack",
+    {
+        skill: "JavaScript",
+        link: "https://www.javascript.com/",
+    },
+    {
+        skill: "TypeScript",
+        link: "https://www.typescriptlang.org/",
+    },
+    {
+        skill: "Python",
+        link: "https://www.python.org/",
+    },
+    {
+        skill: "Next.js",
+        link: "https://nextjs.org/",
+    },
+    {
+        skill: "Node.js",
+        link: "https://nodejs.org/en/about",
+    },
+    {
+        skill: "Agile",
+        link: "https://en.wikipedia.org/wiki/Agile_software_development",
+    },
+    {
+        skill: "Apache Spark",
+        link: "https://spark.apache.org/",
+    },
+    {
+        skill: "AWS",
+        link: "https://aws.amazon.com/what-is-aws/?nc1=f_cc",
+    },
+    {
+        skill: "Confluence",
+        link: "https://www.atlassian.com/software/confluence",
+    },
+    {
+        skill: "Data Structures & Algorithms",
+        link: "",
+    },
+    {
+        skill: "Development Operations (DevOps)",
+        link: "",
+    },
+    {
+        skill: "Docker",
+        link: "",
+    },
+    {
+        skill: "Figma",
+        link: "",
+    },
+    {
+        skill: "Git",
+        link: "",
+    },
+    {
+        skill: "HTML/CSS",
+        link: "",
+    },
+    {
+        skill: "Linux/Unix",
+        link: "",
+    },
+    {
+        skill: "Microsoft Azure",
+        link: "https://azure.microsoft.com/en-us",
+    },
+    {
+        skill: "Pandas",
+        link: "",
+    },
+    {
+        skill: "Postman",
+        link: "",
+    },
+    {
+        skill: "React",
+        link: "",
+    },
+    {
+        skill: "Kubernetes",
+        link: "",
+    },
+    {
+        skill: "Python",
+        link: "",
+    },
+    {
+        skill: "Vue.js",
+        link: "",
+    },
+    {
+        skill: "Express.js",
+        link: "",
+    },
 ] as const;
 
 export const aboutMe = {
