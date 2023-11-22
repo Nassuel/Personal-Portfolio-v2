@@ -150,10 +150,6 @@ export const skillsData = [
         link: "",
     },
     {
-        skill: "Python",
-        link: "",
-    },
-    {
         skill: "Vue.js",
         link: "",
     },
