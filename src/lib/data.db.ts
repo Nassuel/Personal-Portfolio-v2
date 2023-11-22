@@ -166,12 +166,11 @@ export const skillsData = [
 export const aboutMe = {
     paragraph1: `With a deep passion for programming, I thrive on the challenge of building complex web applications. My experience as a full-stack developer encompasses
      both front-end and back-end development, allowing me to craft seamless user experiences from the ground up. I particularly relish the intricate details of the back-end,
-     meticulously constructing the underlying architecture that powers web applications. I find immense satisfaction in designing and implementing efficient and scalable back-end
-     systems that seamlessly integrate with front-end components, ensuring a smooth and responsive user experience.`,
+     meticulously constructing the underlying architecture that powers web applications.`,
     paragraph2: `My expertise extends beyond traditional web development, as I also possess valuable experience as a data engineer and data scientist. This unique perspective
      has instilled in me a profound understanding of the importance of building scalable and reliable systems capable of handling large amounts of data.`,
-    paragraph3: `I am driven by a fervent desire to utilize my skills to create innovative and user-friendly applications that make a positive impact on the world. I am perpetually
-     seeking new challenges and opportunities that foster my growth as a full-stack developer. With my diverse skillset and unwavering dedication, I am confident in my ability to
-     make significant contributions to any team. I am eager to continue my journey as a full-stack developer, leveraging my expertise to build groundbreaking applications that leave
-     a lasting mark on the world.`,
+    paragraph3: `I am driven by a fervent desire to utilize my skills to create innovative and user-friendly applications that make a positive impact within any company. I am
+     perpetually seeking new challenges and opportunities that foster my growth as a full-stack developer. With my diverse skillset and unwavering dedication, I am confident in
+     my ability to make significant contributions to any team. I am eager to continue my journey as a full-stack developer, leveraging my expertise to build groundbreaking
+     applications that leave a lasting mark, not only due to the goal they've accomplish but for their maintainability.`,
 };
