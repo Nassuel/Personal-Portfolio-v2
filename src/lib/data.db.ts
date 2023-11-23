@@ -1,3 +1,6 @@
+import { GraduationCap } from "@phosphor-icons/react";
+import React from "react";
+
 export const experiencesData = [
     {
         title: "Software Engineer",
@@ -64,12 +67,12 @@ export const experiencesData = [
     },
 ] as const;
 
-export const educationDate = [
+export const educationData = [
     {
         school: "Seattle University",
         schoolLink: "seattleu.edu",
-        startDate: "August 2017",
-        endDate: "June 2023",
+        startDate: "2017",
+        endDate: "2023",
         degreeType: "Bachelor of Science",
         major: "Electrical Engineering with a specialization in Computer Engineering",
         minor: "Computer Science",
@@ -77,8 +80,8 @@ export const educationDate = [
     {
         school: "Everett Community College",
         schoolLink: "everettcc.edu",
-        startDate: "March 2015",
-        endDate: "August 2017",
+        startDate: "2015",
+        endDate: "2017",
         degreeType: "Associate of Science",
         major: "Electrical/Electronic Engineering",
         minor: "",

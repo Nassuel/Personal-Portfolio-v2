@@ -10,6 +10,7 @@ import Experience from "@/components/Experience";
 import useThemeSwitcher from "@/hooks/useThemeSwitcher";
 import { aboutMe } from "@/lib/data.db";
 import CustomHeader from "@/components/PageHeaders";
+import Education from "@/components/Education";
 
 export const metadata: Metadata = {
     title: "NVC | About 📖",
@@ -146,6 +147,7 @@ export default function About() {
                         </div>
                         <Skills />
                         <Experience />
+                        <Education />
                     </Layout>
                 </main>
             </IconContext.Provider>
