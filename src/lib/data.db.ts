@@ -49,10 +49,10 @@ export const experiencesData = [
     {
         title: "Student Engineer (Capstone)",
         location: "Bellevue, WA - On-site",
-        description: `For my senior Capstone project, POC'd a Hydroelectric Unit Data Acquisition and
-             Transmission System in concert with 3 peers. In its first iteration, the system was comprised of
-             temperature, strain, conductivity, and distance sensors connected to an embedded system for
-             installation on the rotor of a hydroelectric motor turbine.`,
+        description: `Delivered proof of concept of a hydroelectric unit data acquisition and transmission system.
+             The system was comprised of a temperature, strain, conductivity, and accelerometer sensors connected
+             to an embedded system for installation on the rotor of a hydroelectric turbine-generator, and transmit
+             collected data wirelessly.`,
         icon: {
             url: "/icons/chelan-county-pud.ico",
             padding: ".35rem 0rem 0rem .35rem",
@@ -63,6 +63,27 @@ export const experiencesData = [
         link: "https://www.chelanpud.org/",
     },
 ] as const;
+
+export const educationDate = [
+    {
+        school: "Seattle University",
+        schoolLink: "seattleu.edu",
+        startDate: "August 2017",
+        endDate: "June 2023",
+        degreeType: "Bachelor of Science",
+        major: "Electrical Engineering with a specialization in Computer Engineering",
+        minor: "Computer Science",
+    },
+    {
+        school: "Everett Community College",
+        schoolLink: "everettcc.edu",
+        startDate: "March 2015",
+        endDate: "August 2017",
+        degreeType: "Associate of Science",
+        major: "Electrical/Electronic Engineering",
+        minor: "",
+    },
+];
 
 export const skillsData = [
     {
@@ -169,4 +190,4 @@ export const aboutMe = {
      perpetually seeking new challenges and opportunities that foster my growth as a full-stack developer. With my diverse skillset and unwavering dedication, I am confident in
      my ability to make significant contributions to any team. I am eager to continue my journey as a full-stack developer, leveraging my expertise to build groundbreaking
      applications that leave a lasting mark, not only due to the goal they've accomplish but for their maintainability.`,
-};
+} as const;

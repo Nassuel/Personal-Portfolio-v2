@@ -8,8 +8,9 @@ import { ArrowSquareOut } from "@phosphor-icons/react";
 import Head from "next/head";
 
 export const metadata: Metadata = {
-    title: "NVC | About",
-    description: "Nassuel Valera Cuevas Personal Portfolio V2 | Home",
+    title: "NVC | Welcome! 👋🏽",
+    description: "Landing page Nassuel Valera Cuevas Personal Portfolio showcasing his skills and competencies for prospective recruiter and hiring entities.",
+    keywords: "software engineer, seattle u alumni, everett cc alumni, ex t-mobile, cheland county pud student engineer, dominican repulblic, car enthuasiast, hobbyist photographer, open to hire, professional",
     icons: "/icons/favicon.ico",
 };
 
@@ -17,9 +18,10 @@ export default function Home() {
     return (
         <>
             <Head>
-                <title>NVC | Welcome! 👋🏽</title>
+                <title>{metadata.title! as string}</title>
                 <link rel="icon" href="/icons/favicon.ico" type="image/x-icon" />
-                <meta name="description" content={metadata.description!} />
+                <meta name="keywords" content={metadata.keywords as string} />
+                <meta name="description" content={metadata.description as string} />
             </Head>
             <main className="flex items-center w-full min-h-screen">
                 <Layout className="pt-0 md:pt-16 sm:pt-8">

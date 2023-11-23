@@ -12,8 +12,9 @@ import { aboutMe } from "@/lib/data.db";
 import CustomHeader from "@/components/PageHeaders";
 
 export const metadata: Metadata = {
-    title: "NVC | About",
-    description: "Nassuel Valera Cuevas Personal Portfolio V2 | About",
+    title: "NVC | About 📖",
+    description:
+        "About page for Nassuel Valera Cuevas Personal Portfolio, naming his skills, experience and education. Get to know him better!",
     icons: "/icons/favicon.ico",
 };
 
@@ -59,13 +60,20 @@ export default function About() {
                 }}
             >
                 <Head>
-                    <title>NVC | About 📖</title>
+                    <title>{metadata.title! as string}</title>
                     <link
                         rel="icon"
                         href="/icons/favicon.ico"
                         type="image/x-icon"
                     />
-                    <meta name="description" content={metadata.description!} />
+                    <meta
+                        name="keywords"
+                        content={metadata.keywords as string}
+                    />
+                    <meta
+                        name="description"
+                        content={metadata.description as string}
+                    />
                 </Head>
                 <main className="flex w-full flex-col items-center justify-center">
                     <Layout className="pt-16 mb-8">
@@ -75,7 +83,10 @@ export default function About() {
                         />
                         <div className="grid w-full grid-cols-8 gap-16 sm:gap-8">
                             <div className="col-span-3 flex flex-col item-start justify-start gap-4 xl:col-span-4 md:order-2 md:col-span-8">
-                                <CustomSubheader text="about me" className="md:text-center" />
+                                <CustomSubheader
+                                    text="about me"
+                                    className="md:text-center"
+                                />
                                 <CustomParagraph text={aboutMe.paragraph1} />
                                 <CustomParagraph text={aboutMe.paragraph2} />
                                 <CustomParagraph text={aboutMe.paragraph3} />
