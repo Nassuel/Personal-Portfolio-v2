@@ -11,6 +11,7 @@ import Image from "next/image";
 import Link from "next/link";
 import useThemeSwitcher from "@/hooks/useThemeSwitcher";
 import { GraduationCap } from "@phosphor-icons/react";
+import useIsTouchDevice from "@/hooks/useDetectTouchDevice";
 
 type Education = {
     school: string;
@@ -24,10 +25,11 @@ type Education = {
 
 export default function Education() {
     const [theme, setTheme] = useThemeSwitcher();
+    const isTouchDevice = useIsTouchDevice();
     return (
         <div className="my-8">
             <CustomHeader text="Education" className="!text-6xl" />
-            <VerticalTimeline lineColor="">
+            <VerticalTimeline lineColor="" animate={!isTouchDevice}>
                 {educationData.map((obj: Education, index: number) => (
                     <Fragment key={index}>
                         <VerticalTimelineElement

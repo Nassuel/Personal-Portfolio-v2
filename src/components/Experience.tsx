@@ -10,27 +10,29 @@ import { experiencesData } from "@/lib/data.db";
 import Image from "next/image";
 import Link from "next/link";
 import useThemeSwitcher from "@/hooks/useThemeSwitcher";
+import useIsTouchDevice from "@/hooks/useDetectTouchDevice";
 
 type Experience = {
-        title: string,
-        location: string,
-        description: string,
-        icon: {
-            url: string,
-            padding: string,
-            height: number,
-            width: number,
-        },
-        date: string,
-        link: string,
-}
+    title: string;
+    location: string;
+    description: string;
+    icon: {
+        url: string;
+        padding: string;
+        height: number;
+        width: number;
+    };
+    date: string;
+    link: string;
+};
 
 export default function Experience() {
     const [theme, setTheme] = useThemeSwitcher();
+    const isTouchDevice = useIsTouchDevice();
     return (
         <div className="my-8">
             <CustomHeader text="Experience" className="!text-6xl" />
-            <VerticalTimeline lineColor="">
+            <VerticalTimeline lineColor="" animate={!isTouchDevice}>
                 {experiencesData.map((obj: Experience, index: number) => (
                     <Fragment key={index}>
                         <VerticalTimelineElement
@@ -54,7 +56,8 @@ export default function Experience() {
                                 />
                             }
                             iconStyle={{
-                                background: theme === "light" ? "white" : "black",
+                                background:
+                                    theme === "light" ? "white" : "black",
                                 padding: obj.icon.padding,
                             }}
                             iconOnClick={() => (
