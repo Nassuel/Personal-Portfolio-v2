@@ -28,7 +28,10 @@ export default function Education() {
     const isTouchDevice = useIsTouchDevice();
     return (
         <div className="my-8">
-            <CustomHeader text="Education" className="!text-6xl" />
+            <CustomHeader
+                text="Education"
+                className="!text-6xl md:!text-4xl"
+            />
             <VerticalTimeline lineColor="" animate={!isTouchDevice}>
                 {educationData.map((obj: Education, index: number) => (
                     <Fragment key={index}>

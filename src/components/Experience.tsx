@@ -31,7 +31,10 @@ export default function Experience() {
     const isTouchDevice = useIsTouchDevice();
     return (
         <div className="my-8">
-            <CustomHeader text="Experience" className="!text-6xl" />
+            <CustomHeader
+                text="Experience"
+                className="!text-6xl md:!text-4xl"
+            />
             <VerticalTimeline lineColor="" animate={!isTouchDevice}>
                 {experiencesData.map((obj: Experience, index: number) => (
                     <Fragment key={index}>

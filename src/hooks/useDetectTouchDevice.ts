@@ -1,5 +1,11 @@
 import { useEffect, useState } from "react";
 
+declare global {
+    interface Window {
+        DocumentTouch: any;
+    }
+}
+
 function isTouchDevice() {
     if (typeof window === "undefined") return false;
     const prefixes = " -webkit -moz- -o- -ms- ".split(" ");

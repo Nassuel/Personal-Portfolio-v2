@@ -13,7 +13,7 @@ export default function Skills() {
                 className="!text-6xl mb-8 md:!text-4xl"
             />
             <div className="w-full h-full relative flex items-center justify-center">
-                <div className="flex flex-wrap justify-center gap-2 text-lg text-gray-800">
+                <div className="flex flex-wrap justify-center gap-2 text-lg md:text-base text-gray-800">
                     {skillsData.map((obj, index) =>
                         obj.link ? (
                             <Link
