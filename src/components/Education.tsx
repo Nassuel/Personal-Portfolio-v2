@@ -47,6 +47,7 @@ export default function Education() {
                                 borderRight: "0.4rem solid #9ca3af",
                             }}
                             date={`${obj.startDate} - ${obj.endDate}`}
+                            dateClassName="text-gray-400"
                             icon={
                                 <GraduationCap color={`${theme === "light" ? "#000000" : "#ffffff"}`} weight="regular" />
                             }
@@ -65,9 +66,9 @@ export default function Education() {
                             </h4>
                             <Fragment>
                                 {obj.minor !== "" ? (
-                                    <span className="mt-2 capitalize text-md dark:text-black">
+                                    <p className="!m-0 capitalize text-md dark:text-black">
                                         {obj.minor} minor
-                                    </span>
+                                    </p>
                                 ) : null}
                             </Fragment>
                         </VerticalTimelineElement>

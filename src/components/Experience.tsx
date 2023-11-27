@@ -50,6 +50,7 @@ export default function Experience() {
                                 borderRight: "0.4rem solid #9ca3af",
                             }}
                             date={obj.date}
+                            dateClassName="text-gray-400"
                             icon={
                                 <Image
                                     src={obj.icon.url}
@@ -70,8 +71,8 @@ export default function Experience() {
                             <h3 className="font-bold capitalize text-lg dark:text-black">
                                 {obj.title}
                             </h3>
-                            <p className="text-gray-400">{obj.location}</p>
-                            <p className="!mt-1 !font-normal dark:text-black">
+                            <p className="!m-0 text-gray-400">{obj.location}</p>
+                            <p className="!m-0 !font-normal dark:text-black">
                                 {obj.description}
                             </p>
                         </VerticalTimelineElement>
