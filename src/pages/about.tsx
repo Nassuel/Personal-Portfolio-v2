@@ -92,8 +92,8 @@ export default function About() {
                                 <CustomParagraph text={aboutMe.paragraph2} />
                                 <CustomParagraph text={aboutMe.paragraph3} />
                             </div>
-                            <div className="p-8 col-span-3 relative h-max rounded-2xl border-2 border-solid border-black dark:border-white xl:col-span-4 md:order-1 md:col-span-8">
-                                <div className="absolute top-0 -right-3 -z-10 w-[102%] h-[103%] rounded-2xl bg-white dark:bg-black" />
+                            <div className="p-8 col-span-3 relative h-max rounded-2xl border-2 border-solid border-black/70 dark:border-white/70 xl:col-span-4 md:order-1 md:col-span-8">
+                                <div className="absolute top-0 -right-3 -z-10 w-[102%] h-[103%] rounded-2xl bg-white/40 dark:bg-black/40" />
                                 <Image
                                     src={BusinessProfilePic}
                                     priority={true}
