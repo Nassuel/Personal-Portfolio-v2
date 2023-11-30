@@ -19,6 +19,7 @@ type Experience = {
     icon: {
         url: string;
         padding: string;
+        mobilePadding: string;
         height: number;
         width: number;
     };
@@ -62,7 +63,7 @@ export default function Experience() {
                             iconStyle={{
                                 background:
                                     theme === "light" ? "white" : "black",
-                                padding: obj.icon.padding,
+                                padding: isTouchDevice ? obj.icon.mobilePadding : obj.icon.padding,
                             }}
                             iconOnClick={() => (
                                 <Link href={obj.link} target={"_blank"} />

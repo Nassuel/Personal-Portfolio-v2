@@ -12,6 +12,7 @@ export const experiencesData = [
         icon: {
             url: "/icons/t-mobile-t.svg",
             padding: ".88rem 0rem 0rem .98rem",
+            mobilePadding: ".2rem 0rem 0rem .275rem",
             height: 30,
             width: 30,
         },
@@ -27,10 +28,10 @@ export const experiencesData = [
         icon: {
             url: "/icons/t-mobile-t.svg",
             padding: ".88rem 0rem 0rem .98rem",
+            mobilePadding: ".2rem 0rem 0rem .275rem",
             height: 30,
             width: 30,
         },
-        iconPadding: ".88rem 0rem 0rem .98rem",
         date: "February 2019 - June 2019",
         link: "https://www.t-mobile.com",
     },
@@ -42,11 +43,11 @@ export const experiencesData = [
         icon: {
             url: "/icons/t-mobile-t.svg",
             padding: ".88rem 0rem 0rem .98rem",
+            mobilePadding: ".2rem 0rem 0rem .275rem",
             height: 30,
             width: 30,
         },
         date: "June 2018 - February 2019",
-        iconPadding: ".88rem 0rem 0rem .98rem",
         link: "https://www.t-mobile.com",
     },
     {
@@ -59,6 +60,7 @@ export const experiencesData = [
         icon: {
             url: "/icons/chelan-county-pud.ico",
             padding: ".35rem 0rem 0rem .35rem",
+            mobilePadding: "",
             height: 50,
             width: 50,
         },

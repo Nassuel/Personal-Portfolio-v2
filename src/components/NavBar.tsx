@@ -103,23 +103,13 @@ export default function NavBar() {
                 }}
             >
                 <button
-                    className="flex-col justify-center items-center
-                        transition-all duration-300 ease-in hidden lg:flex"
+                    className="hidden lg:flex flex-col justify-center items-center"
                     onClick={handleOverflowMenuClick}
                 >
-                    {isOverflowMenuOpen ? (
-                        <X
-                            color={`${
-                                theme === "dark" ? "#ffffff" : "#000000"
-                            }`}
-                        />
-                    ) : (
-                        <List
-                            color={`${
-                                theme === "dark" ? "#ffffff" : "#000000"
-                            }`}
-                        />
-                    )}
+
+                    <span className={`bg-black dark:bg-white transition-all duration-300 ease-out block h-0.5 w-6 rounded-sm ${isOverflowMenuOpen ? 'rotate-45 translate-y-1' : '-translate-y-0.5'}`}></span>
+                    <span className={`bg-black dark:bg-white transition-all duration-300 ease-out block h-0.5 w-5 rounded-sm my-0.5 self-start ${isOverflowMenuOpen ? 'opacity-0' : 'opacity-100'}`}></span>
+                    <span className={`bg-black dark:bg-white transition-all duration-300 ease-out block h-0.5 w-6 rounded-sm ${isOverflowMenuOpen ? '-rotate-45 -translate-y-1' : 'translate-y-0.5'}`}></span>
                 </button>
 
                 {/* Full screen content */}
@@ -159,10 +149,14 @@ export default function NavBar() {
                         >
                             <SquareHalfBottom />
                         </Link>
-
+                        {/* Dark/Light switcher */}
                         <button onClick={toggleTheme}>
                             {theme === "dark" ? (
-                                <SunHorizon size={42} color="#ffffff" />
+                                <SunHorizon
+                                    size={42}
+                                    color="#ffffff"
+                                    className="hover:"
+                                />
                             ) : (
                                 <MoonStars size={42} color="#000000" />
                             )}
@@ -177,7 +171,7 @@ export default function NavBar() {
                     color: theme === "dark" ? "#000000" : "#ffffff",
                 }}
             >
-                {/* Mobile popup */}
+                {/* Mobile popup menu */}
                 {isOverflowMenuOpen ? (
                     <div className="min-w-[70vw] gap-4 flex flex-col justify-between items-center fixed z-30 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-black/90 dark:bg-white/75 rounded-2xl backdrop-blur-md py-32">
                         <nav className="flex flex-col items-center justify-center gap-2">
