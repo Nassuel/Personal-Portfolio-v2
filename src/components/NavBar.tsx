@@ -6,11 +6,10 @@ import {
     IconContext,
     InstagramLogo,
     LinkedinLogo,
-    List,
-    MoonStars,
+    Moon,
     SquareHalfBottom,
+    Sun,
     SunHorizon,
-    X,
 } from "@phosphor-icons/react";
 import useThemeSwitcher from "../hooks/useThemeSwitcher";
 import { useState } from "react";
@@ -88,6 +87,8 @@ export default function NavBar() {
     ];
     const [isOverflowMenuOpen, setIsOverflowMenuOpen] =
         useState<boolean>(false);
+    const darkThemeIconClassName =
+        "outline outline-offset-4 outline-2 rounded-md";
 
     const handleOverflowMenuClick = () => {
         setIsOverflowMenuOpen(!isOverflowMenuOpen);
@@ -98,7 +99,7 @@ export default function NavBar() {
             <IconContext.Provider
                 value={{
                     size: 32,
-                    weight: "light",
+                    weight: "regular",
                     color: theme === "dark" ? "#ffffff" : "#000000",
                 }}
             >
@@ -106,10 +107,25 @@ export default function NavBar() {
                     className="hidden lg:flex flex-col justify-center items-center"
                     onClick={handleOverflowMenuClick}
                 >
-
-                    <span className={`bg-black dark:bg-white transition-all duration-300 ease-out block h-0.5 w-6 rounded-sm ${isOverflowMenuOpen ? 'rotate-45 translate-y-1' : '-translate-y-0.5'}`}></span>
-                    <span className={`bg-black dark:bg-white transition-all duration-300 ease-out block h-0.5 w-5 rounded-sm my-0.5 self-start ${isOverflowMenuOpen ? 'opacity-0' : 'opacity-100'}`}></span>
-                    <span className={`bg-black dark:bg-white transition-all duration-300 ease-out block h-0.5 w-6 rounded-sm ${isOverflowMenuOpen ? '-rotate-45 -translate-y-1' : 'translate-y-0.5'}`}></span>
+                    <span
+                        className={`bg-black dark:bg-white transition-all duration-300 ease-out block h-0.5 w-6 rounded-sm ${
+                            isOverflowMenuOpen
+                                ? "rotate-45 translate-y-1"
+                                : "-translate-y-0.5"
+                        }`}
+                    ></span>
+                    <span
+                        className={`bg-black dark:bg-white transition-all duration-300 ease-out block h-0.5 w-5 rounded-sm my-0.5 self-start ${
+                            isOverflowMenuOpen ? "opacity-0" : "opacity-100"
+                        }`}
+                    ></span>
+                    <span
+                        className={`bg-black dark:bg-white transition-all duration-300 ease-out block h-0.5 w-6 rounded-sm ${
+                            isOverflowMenuOpen
+                                ? "-rotate-45 -translate-y-1"
+                                : "translate-y-0.5"
+                        }`}
+                    ></span>
                 </button>
 
                 {/* Full screen content */}
@@ -152,13 +168,15 @@ export default function NavBar() {
                         {/* Dark/Light switcher */}
                         <button onClick={toggleTheme}>
                             {theme === "dark" ? (
-                                <SunHorizon
-                                    size={42}
+                                <Sun
                                     color="#ffffff"
-                                    className="hover:"
+                                    className={`${darkThemeIconClassName} outline-black dark:outline-white`}
                                 />
                             ) : (
-                                <MoonStars size={42} color="#000000" />
+                                <Moon
+                                    color="#000000"
+                                    className={`${darkThemeIconClassName} outline-black dark:outline-white`}
+                                />
                             )}
                         </button>
                     </nav>
@@ -220,9 +238,15 @@ export default function NavBar() {
 
                             <button onClick={toggleTheme}>
                                 {theme === "dark" ? (
-                                    <SunHorizon size={42} color="#000000" />
+                                    <Sun
+                                        color="#000000"
+                                        className={`${darkThemeIconClassName} dark:outline-black outline-white`}
+                                    />
                                 ) : (
-                                    <MoonStars size={42} color="#ffffff" />
+                                    <Moon
+                                        color="#ffffff"
+                                        className={`${darkThemeIconClassName} dark:outline-black outline-white`}
+                                    />
                                 )}
                             </button>
                         </nav>

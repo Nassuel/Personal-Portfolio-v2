@@ -46,8 +46,7 @@ export default function Home() {
                                 As a passionate full-stack developer with
                                 experience in data engineering and data science,
                                 I specialize in building scalable and reliable
-                                web applications. Here I showcase my expertise
-                                in React, web development, and Next.js.
+                                web applications!
                             </p>
                             <div className="flex items-center self-start mt-2 gap-2 lg:self-center">
                                 <Link
