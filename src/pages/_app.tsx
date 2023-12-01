@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react";
 import Footer from "@/components/Footer";
 import NavBar from "@/components/NavBar";
 import "@/styles/globals.css";
@@ -17,9 +18,12 @@ export default function App({
 }) {
     return (
         <>
-            <main className={`${nunito.variable} font-nuni min-h-screen w-full relative text-black dark:text-white bg-white dark:bg-black`}>
+            <main
+                className={`${nunito.variable} font-nuni min-h-screen w-full relative text-black dark:text-white bg-white dark:bg-black`}
+            >
                 <NavBar />
                 <Component {...pageProps} />
+                <Analytics />
                 <Footer />
             </main>
         </>
