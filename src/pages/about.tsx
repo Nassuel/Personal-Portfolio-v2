@@ -79,15 +79,20 @@ export default function About() {
                 <main className="flex w-full flex-col items-center justify-center">
                     <Layout className="pt-16 mb-8">
                         <CustomHeader
-                            text="Welcome to My World"
+                            text="What I am about"
                             className="mb-14 lg:!text-7xl sm:!text-6xl xs:!text-4xl sm:mb-8"
                         />
                         <div className="grid w-full grid-cols-8 gap-16 sm:gap-8">
                             <div className="col-span-3 flex flex-col item-start justify-start gap-4 xl:col-span-4 md:order-2 md:col-span-8">
-                                <CustomSubheader
-                                    text="about me"
-                                    className="md:text-center"
-                                />
+                                <div className="flex flex-row items-center gap-1 md:justify-center">
+                                    <CustomSubheader
+                                        text="about me"
+                                        className="md:text-center"
+                                    />
+                                    <sup className="text-gray-400 capitalize">
+                                        Read time ~1 min.
+                                    </sup>
+                                </div>
                                 <CustomParagraph text={aboutMe.paragraph1} />
                                 <CustomParagraph text={aboutMe.paragraph2} />
                                 <CustomParagraph text={aboutMe.paragraph3} />
