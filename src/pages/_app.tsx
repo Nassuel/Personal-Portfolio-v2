@@ -1,4 +1,5 @@
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import Footer from "@/components/Footer";
 import NavBar from "@/components/NavBar";
 import "@/styles/globals.css";
@@ -24,6 +25,7 @@ export default function App({
                 <NavBar />
                 <Component {...pageProps} />
                 <Analytics />
+                <SpeedInsights />
                 <Footer />
             </main>
         </>
