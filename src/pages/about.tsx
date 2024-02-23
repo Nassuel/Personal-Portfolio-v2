@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     icons: "/icons/favicon.ico",
 };
 
-const CustomParagraph = ({
+const CustomParagraph: any = ({
     text,
     className = "",
 }: {
@@ -29,7 +29,7 @@ const CustomParagraph = ({
     return <p className={`font-medium ${className}`}>{text}</p>;
 };
 
-const CustomSubheader = ({
+const CustomSubheader: any = ({
     text,
     className = "",
 }: {
@@ -83,7 +83,7 @@ export default function About() {
                             className="mb-14 lg:!text-7xl sm:!text-6xl xs:!text-4xl sm:mb-8"
                         />
                         <div className="grid w-full grid-cols-8 gap-16 sm:gap-8">
-                            <div className="col-span-3 flex flex-col item-start justify-start gap-4 xl:col-span-4 md:order-2 md:col-span-8">
+                            <div className="col-span-4 flex flex-col item-start justify-start gap-4 xl:col-span-4 md:order-2 md:col-span-8">
                                 <div className="flex flex-row items-center gap-1 md:justify-center">
                                     <CustomSubheader
                                         text="about me"
@@ -97,7 +97,7 @@ export default function About() {
                                 <CustomParagraph text={aboutMe.paragraph2} />
                                 <CustomParagraph text={aboutMe.paragraph3} />
                             </div>
-                            <div className="p-8 col-span-3 relative h-max rounded-2xl border-2 border-solid border-black/70 dark:border-white/70 xl:col-span-4 md:order-1 md:col-span-8">
+                            <div className="p-8 col-span-4 relative h-max rounded-2xl border-2 border-solid border-black/70 dark:border-white/70 xl:col-span-4 md:order-1 md:col-span-8">
                                 <div className="absolute top-0 -right-3 -z-10 w-[102%] h-[103%] rounded-2xl bg-white/40 dark:bg-black/40" />
                                 <Image
                                     src={BusinessProfilePic}
@@ -109,8 +109,8 @@ export default function About() {
                                     className="w-full h-auto rounded-2xl"
                                 />
                             </div>
-                            <div className="col-span-2 flex flex-col items-center justify-between xl:col-span-8 xl:flex-row xl:items-center md:order-3">
-                                {/* <div>
+                            {/* <div className="col-span-2 flex flex-col items-center justify-between xl:col-span-8 xl:flex-row xl:items-center md:order-3">
+                                <div>
                                     <CustomSubheader text="website crafted with" />
                                 </div>
                                 <div className="flex flex-col items-center justify-center">
@@ -147,8 +147,8 @@ export default function About() {
                                 <div className="flex flex-col items-center justify-center">
                                     <FileTsx className="w-full h-full"
                                     />
-                                </div> */}
-                            </div>
+                                </div>
+                            </div> */}
                         </div>
                         <Skills />
                         <Experience />
