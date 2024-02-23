@@ -67,7 +67,7 @@ export default function Home() {
                   <ArrowSquareOut size={32} className={"w-6 ml-1"} />
                 </Link>
                 <Link
-                  href=""
+                  href="/about"
                   // target={"_blank"}
                   className="flex items-center bg-black text-white
                                     dark:bg-white dark:text-black p-2.5 px-6 rounded-lg text-lg font-semibold
