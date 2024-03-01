@@ -3,7 +3,7 @@ export default function Layout({
     className = "",
 }: {
     children: any;
-    className: string;
+    className?: string;
 }) {
     return (
         <div className={`px-32 w-full h-full inline-block z-0 xl:p-24 lg:p-16 md:p-12 sm:p-8 ${className}`}>

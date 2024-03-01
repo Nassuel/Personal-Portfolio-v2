@@ -22,7 +22,7 @@ export default function Hobbies() {
                 <meta name="description" content={metadata.description!} />
             </Head>
             <main className="flex w-full h-screen flex-col items-center justify-center">
-                <Layout className={""}>
+                <Layout>
                     <CustomHeader
                         text="Under Construction ⚒️"
                         className="!text-6xl xl:!text-5xl lg:!text-center lg:!text-6xl md:!text-5xl sm:text-3xl"

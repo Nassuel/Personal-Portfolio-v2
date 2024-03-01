@@ -133,7 +133,7 @@ export default function NavBar() {
                     <nav className="flex items-center gap-4">
                         <CustomLink href="/" title="Home" />
                         <CustomLink href="/about" title="About" />
-                        <CustomLink href="/hobbies" title="Hobbies" />
+                        {/* <CustomLink href="/hobbies" title="Hobbies" /> */}
                     </nav>
 
                     <nav className="flex items-center justify-center flex-wrap gap-4">
@@ -203,11 +203,11 @@ export default function NavBar() {
                                 title="About"
                                 toggle={handleOverflowMenuClick}
                             />
-                            <CustomMobileLink
+                            {/* <CustomMobileLink
                                 href="/hobbies"
                                 title="Hobbies"
                                 toggle={handleOverflowMenuClick}
-                            />
+                            /> */}
                         </nav>
 
                         <nav className="flex items-center justify-center flex-wrap gap-4">
