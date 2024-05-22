@@ -63,8 +63,8 @@ export default function Home() {
                                     border border-solid border-transparent hover:border-black dark:hover:border-white
                                     md:p-2 md-px-4 md:text-base"
                 >
+                  <ArrowSquareOut size={32} className={"w-6 mr-2"} />
                   Resume
-                  <ArrowSquareOut size={32} className={"w-6 ml-1"} />
                 </Link>
                 <Link
                   href="/about"
@@ -75,14 +75,13 @@ export default function Home() {
                                     border border-solid border-transparent hover:border-black dark:hover:border-white
                                     md:p-2 md-px-4 md:text-base"
                 >
-                  <PersonSimpleRun size={32} className={"w-6 mr-1"} />
+                  <PersonSimpleRun size={32} className={"w-6 mr-2"} />
                   About
                 </Link>
                 <Link
                   href="mailto:valeranassuel@gmail.com"
                   target={"_blank"}
-                  className="ml-4 text-lg font-medium capitalize text-black dark:text-white underline
-                                    hover:scale-110 md:text-base"
+                  className="ml-4 text-lg font-medium capitalize text-black dark:text-white underline hover:scale-110 md:text-base"
                 >
                   Contact
                 </Link>
