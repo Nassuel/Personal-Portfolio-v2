@@ -7,7 +7,7 @@ import gianConstruction from '../public/images/freelancing/gian-construction-lan
 
 const Freelancing = () => (
   <Layout title="Freelancing">
-    <Container>
+    <Container py={10}>
       <Heading as="h3" fontSize={20} mb={4}>
         Freelancing
       </Heading>

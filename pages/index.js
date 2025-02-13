@@ -10,7 +10,6 @@ import {
   Divider
 } from '@chakra-ui/react'
 import { EmailIcon } from '@chakra-ui/icons'
-import Paragraph from '../components/paragraph'
 import { BioSection, BioYear } from '../components/bio'
 import Layout from '../components/layouts/article'
 import Section from '../components/section'
@@ -26,7 +25,7 @@ const Home = () => (
           <Heading as="h1" variant="page-title">
             Nassuel Valera Cuevas
           </Heading>
-          <p>Developer | Musician | Audio Engineer</p>
+          <p>Developer | Musician | Audio Engineer | Photographer</p>
         </Box>
       </Box>
 
@@ -64,6 +63,13 @@ const Home = () => (
         </BioSection>
         <BioSection>
           <BioYear>2018</BioYear>
+          Hardware Engineer, Student at{' '}
+          <Link href="https://www.chelanpud.org/" target="_blank">
+            Chelan County PUD
+          </Link>
+        </BioSection>
+        <BioSection>
+          <BioYear>2018</BioYear>
           Business Intelligence Intern at{' '}
           <Link href="https://t-mobile.com" target="_blank">
             T-Mobile
@@ -97,22 +103,6 @@ const Home = () => (
             CFC Everett
           </Link>
         </BioSection>
-      </Section>
-
-      <Section delay={0.3}>
-        <Heading as="h3" variant="section-title">
-          I enjoy
-        </Heading>
-        <Paragraph>
-          Music, Playing Guitar,{' '}
-          <Link
-            href="https://www.instagram.com/godspeed.pictura"
-            target="_blank"
-          >
-            Photography
-          </Link>
-          , Fujifilm
-        </Paragraph>
       </Section>
 
       <Section delay={0.3}>
