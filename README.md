@@ -2,8 +2,6 @@
 
 [https://www.nassuel.com/](https://www.nassuel.com/)
 
-Thanks to [https://www.craftz.dog/](https://www.craftz.dog/) for the scaffolding
-
 ## Stack
 
 - [Next.js](https://nextjs.org/) - A React framework with hybrid static & server rendering, and route pre-fetching, etc.
@@ -28,3 +26,7 @@ $PROJECT_ROOT
 ## License
 
 MIT License.
+
+## Much Obliged
+
+[https://www.craftz.dog/](https://www.craftz.dog/) for the scaffolding
