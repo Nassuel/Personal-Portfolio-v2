@@ -2,8 +2,13 @@ import { Container, Heading, SimpleGrid, Link } from '@chakra-ui/react'
 import Layout from '../components/layouts/article'
 import Section from '../components/section'
 import { AboutSection, AboutYear } from '../components/about'
-import { educationData, aboutMe, certificationData } from '../lib/data'
-import Paragraph from '../components/paragraph'
+import {
+  educationData,
+  aboutMe,
+  certificationData,
+  experiencesData
+} from '../lib/data'
+import { Paragraph, ParagraphClean } from '../components/paragraph'
 
 const About = () => (
   <Layout title="About">
@@ -18,6 +23,21 @@ const About = () => (
       <SimpleGrid columns={[1, 1, 1]} gap={2}>
         <Section>
           <Paragraph>{aboutMe.paragraph1}</Paragraph>
+        </Section>
+        <Section>
+          <Heading as="h4" fontSize={18} mb="2">
+            Work Experience
+          </Heading>
+          {experiencesData.map((data, index) => (
+            <AboutSection key={index}>
+              <AboutYear>{data.date}</AboutYear>
+              <b>{data.title}</b> at{' '}
+              <Link href={`https://${data.link}`} target="_blank">
+                {data.company}
+              </Link>
+              <ParagraphClean>{data.description}</ParagraphClean>
+            </AboutSection>
+          ))}
         </Section>
         <Section>
           <Heading as="h4" fontSize={18} mb="2">
@@ -40,7 +60,7 @@ const About = () => (
           <Heading as="h4" fontSize={18} mb="2">
             Certifications
           </Heading>
-          {certificationData.map(({link, name}, index) => (
+          {certificationData.map(({ link, name }, index) => (
             <AboutSection key={index}>
               <Link href={`https://${link}`} target="_blank">
                 {name}
