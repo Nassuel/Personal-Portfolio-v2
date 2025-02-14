@@ -21,6 +21,7 @@ const LinkItem = ({ href, path, target, children, ...props }) => {
       scroll={false}
       p={2}
       bg={active ? 'grassTeal' : undefined}
+      rounded="10"
       color={active ? '#202023' : inactiveColor}
       target={target}
       {...props}
@@ -65,6 +66,9 @@ const Navbar = props => {
           flexGrow={1}
           mt={{ base: 4, md: 0 }}
         >
+          <LinkItem href="/about" path={path}>
+            About
+          </LinkItem>
           <LinkItem href="/freelancing" path={path}>
             Freelancing
           </LinkItem>

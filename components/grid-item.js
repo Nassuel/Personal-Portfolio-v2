@@ -25,7 +25,7 @@ export const WorkGridItem = ({
   children,
   title,
   thumbnail,
-  link
+  link = null
 }) => (
   <Box w="100%" textAlign="center">
     <LinkBox

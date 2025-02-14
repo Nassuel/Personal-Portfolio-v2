@@ -35,7 +35,8 @@ const Home = () => (
         </Heading>
         <BioSection>
           <BioYear>2023 to now</BioYear>
-          Working as a <Link href="/freelancing">freelancer</Link>
+          Working as a <Link href="/freelancing">freelancing</Link>{' '}
+          Software Engineer
         </BioSection>
         <BioSection>
           <BioYear>2019</BioYear>
@@ -114,7 +115,7 @@ const Home = () => (
             <Link as={NextLink} href={socials.github} target="_blank">
               <Button
                 variant="ghost"
-                colorScheme="teal"
+                colorScheme="grassTeal"
                 leftIcon={<IoLogoGithub />}
               >
                 @Nassuel
@@ -125,7 +126,7 @@ const Home = () => (
             <Link as={NextLink} href={socials.ig} target="_blank">
               <Button
                 variant="ghost"
-                colorScheme="teal"
+                colorScheme="grassTeal"
                 leftIcon={<IoLogoInstagram />}
               >
                 @godspeed.pictura
@@ -136,7 +137,7 @@ const Home = () => (
             <Link as={NextLink} href={socials.linkedin} target="_blank">
               <Button
                 variant="ghost"
-                colorScheme="teal"
+                colorScheme="grassTeal"
                 leftIcon={<IoLogoLinkedin />}
               >
                 Nassuel Valera Cuevas
@@ -151,7 +152,7 @@ const Home = () => (
             >
               <Button
                 variant="ghost"
-                colorScheme="teal"
+                colorScheme="grassTeal"
                 leftIcon={<EmailIcon />}
               >
                 Email me!
