@@ -4,6 +4,7 @@ import Section from '../components/section'
 import { WorkGridItem } from '../components/grid-item'
 
 import gianConstruction from '../public/images/freelancing/gian-construction-landing.png'
+import kingdomTools from '../public/images/freelancing/kingdom-tools.png'
 
 const Freelancing = () => (
   <Layout title="Freelancing">
@@ -19,8 +20,17 @@ const Freelancing = () => (
             thumbnail={gianConstruction}
             link="gianconstruction.com"
           >
-            A custom website for a small-sized company. The website was built
-            using Next.js and Tailwind CSS with DaisyUI. Hosted by Vercel.
+            A custom website for a construction company. Denotes its services
+            and contact info. The website was built using Next.js and Tailwind
+            CSS with DaisyUI. Hosted by Vercel.
+          </WorkGridItem>
+        </Section>
+        <Section>
+          <WorkGridItem title="Kingdom Tools" thumbnail={kingdomTools} link="">
+            Kingdom Tools is a transformative platform designed to empower
+            churches and religious organizations with innovative, AI-driven
+            tools. The website was built using Next.js and Tailwind CSS with
+            shadcn/ui. Hosted by Vercel.
           </WorkGridItem>
         </Section>
       </SimpleGrid>
