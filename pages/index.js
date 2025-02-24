@@ -92,7 +92,7 @@ const Home = () => (
         </Heading>
         <BioSection>
           <BioYear>2019</BioYear>
-          Digital Ministries Assistant at{' '}
+          Digital Ministries Coordinator at{' '}
           <Link href="https://www.betaniaeverett.com/" target="_blank">
             Betania 
           </Link>
