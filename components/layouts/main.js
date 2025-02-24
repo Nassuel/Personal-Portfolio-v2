@@ -13,7 +13,7 @@ const Main = ({ children, router }) => {
         <link rel="apple-touch-icon" href="apple-touch-icon.png" />
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
         <meta property="og:site_name" content="Nassuel Valera Cuevas" />
-        <meta name="og:title" content="Nassuel Valera Cuevas" />
+        <meta name="og:title" content="NVC" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://www.nassuel.com/card.jpg" />
         <title>NVC - Home</title>
