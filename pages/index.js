@@ -91,7 +91,7 @@ const Home = () => (
           Volunteering
         </Heading>
         <BioSection>
-          <BioYear>2019</BioYear>
+          <BioYear>2024-2025</BioYear>
           Digital Ministries Coordinator at{' '}
           <Link href="https://www.betaniaeverett.com/" target="_blank">
             Betania 
