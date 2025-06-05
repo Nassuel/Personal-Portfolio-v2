@@ -79,11 +79,11 @@ const Home = () => (
 
         <Divider my={3} variant="little-thicker" />
 
-        <BioSection>
+        {/* <BioSection>
           <BioYear>1996</BioYear>
           Born in Santo Domingo, Dominican Republic
           <FlagIcon ml={1} />
-        </BioSection>
+        </BioSection> */}
       </Section>
 
       <Section delay={0.2}>
