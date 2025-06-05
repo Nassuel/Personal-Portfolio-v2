@@ -14,7 +14,7 @@ import { BioSection, BioYear } from '../components/bio'
 import Layout from '../components/layouts/article'
 import Section from '../components/section'
 import { IoLogoInstagram, IoLogoGithub, IoLogoLinkedin } from 'react-icons/io5'
-import FlagIcon from '../components/icons/flag'
+// import FlagIcon from '../components/icons/flag'
 import { socials } from '../lib/data'
 
 const Home = () => (
@@ -79,11 +79,11 @@ const Home = () => (
 
         <Divider my={3} variant="little-thicker" />
 
-        <BioSection>
+        {/* <BioSection>
           <BioYear>1996</BioYear>
           Born in Santo Domingo, Dominican Republic
           <FlagIcon ml={1} />
-        </BioSection>
+        </BioSection> */}
       </Section>
 
       <Section delay={0.2}>
