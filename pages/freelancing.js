@@ -38,7 +38,7 @@ const Freelancing = () => (
           <WorkGridItem
             title="Parents for Safe Childcare"
             thumbnail={parentsForSafeChildcare}
-            link="parentsforsafechildcare.org"
+            link="parents-for-safe-childcare.vercel.app/"
           >
             Parents for safe childcare is a nonprofit organization I have volunteered
             to create a new and refreshred website for.
