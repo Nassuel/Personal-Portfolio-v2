@@ -5,7 +5,7 @@ import { WorkGridItem } from '../components/grid-item'
 
 import gianConstruction from '../public/images/freelancing/gian-construction-landing.png'
 import kingdomTools from '../public/images/freelancing/kingdom-tools.png'
-import parentsForSafeChildcare from '../public/images/freelancing/LogoPurpFinal.webp'
+// import parentsForSafeChildcare from '../public/images/freelancing/LogoPurpFinal.webp'
 
 const Freelancing = () => (
   <Layout title="Freelancing">
