@@ -34,16 +34,6 @@ const Freelancing = () => (
             shadcn/ui. Hosted by Vercel.
           </WorkGridItem>
         </Section>
-        <Section>
-          <WorkGridItem
-            title="Parents for Safe Childcare"
-            thumbnail={parentsForSafeChildcare}
-            link="parents-for-safe-childcare.vercel.app/"
-          >
-            Parents for safe childcare is a nonprofit organization I have volunteered
-            to create a new and refreshred website for.
-          </WorkGridItem>
-        </Section>
       </SimpleGrid>
     </Container>
   </Layout>
