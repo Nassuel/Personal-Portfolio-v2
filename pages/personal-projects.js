@@ -9,7 +9,7 @@ const Freelancing = () => (
   <Layout title="Freelancing">
     <Container py={10}>
       <Heading as="h3" fontSize={20} mb={4}>
-        Freelancing
+        Academic Work
       </Heading>
 
       <SimpleGrid columns={[1, 1, 2]} gap={6}>
