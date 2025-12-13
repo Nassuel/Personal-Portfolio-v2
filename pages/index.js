@@ -34,8 +34,12 @@ const Home = () => (
           Bio
         </Heading>
         <BioSection>
+          <BioYear>2025 to now</BioYear>
+          IT Asset Manager at <Link href="https://www.smartsheet.com" target="_blank">Smartsheet</Link>
+        </BioSection>
+        <BioSection>
           <BioYear>2023 to now</BioYear>
-          Working as a <Link href="/freelancing">freelancing</Link>{' '}
+          <Link href="/freelancing">Freelance</Link>{' '}
           Software Engineer
         </BioSection>
         <BioSection>
@@ -47,7 +51,7 @@ const Home = () => (
         </BioSection>
         <BioSection>
           <BioYear>2019</BioYear>
-          Obtained Bachelor of Science in Electrical Engineering, Computer
+          Obtained Bachelor of Science in <Link href='https://www.seattleu.edu/academics/all-programs/electrical-engineering-bs/' target='_blank'>Electrical Engineering</Link>, Computer
           Engineering specialization at{' '}
           <Link href="https://seattleu.edu" target="_blank">
             Seattle University
@@ -94,7 +98,7 @@ const Home = () => (
           <BioYear>2024-2025</BioYear>
           Digital Ministries Coordinator at{' '}
           <Link href="https://www.betaniaeverett.com/" target="_blank">
-            Betania 
+            Betania
           </Link>
         </BioSection>
         <BioSection>
