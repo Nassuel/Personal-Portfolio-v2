@@ -102,7 +102,7 @@ const Home = () => (
           </Link>
         </BioSection>
         <BioSection>
-          <BioYear>2019</BioYear>
+          <BioYear>2019 - Present</BioYear>
           Audio/Network Engineer at{' '}
           <Link href="https://www.instagram.com/cfceverett/" target="_blank">
             CFC Everett
