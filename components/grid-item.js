@@ -1,7 +1,6 @@
 import NextLink from 'next/link'
 import Image from 'next/image'
 import { Box, Text, LinkBox, LinkOverlay } from '@chakra-ui/react'
-import { Global } from '@emotion/react'
 
 export const GridItem = ({ children, href, title, thumbnail }) => (
   <Box w="100%" textAlign="center">
@@ -12,6 +11,7 @@ export const GridItem = ({ children, href, title, thumbnail }) => (
         className="grid-item-thumbnail"
         placeholder="blur"
         loading="lazy"
+        style={{ borderRadius: '10px' }}
       />
       <LinkOverlay href={href} target="_blank">
         <Text mt={2}>{title}</Text>
@@ -25,38 +25,52 @@ export const WorkGridItem = ({
   children,
   title,
   thumbnail,
-  link = null
+  link = ''
 }) => (
   <Box w="100%" textAlign="center">
-    <LinkBox
-      as={NextLink}
-      href={`https://${link}`}
-      scroll={false}
-      cursor="pointer"
-      target="_blank"
-    >
-      <Image
-        src={thumbnail}
-        alt={title}
-        className="grid-item-thumbnail"
-        placeholder="blur"
-      />
-      <LinkOverlay as="div" href={`https://${link}`} target="_blank">
+    {link ? (
+      <LinkBox
+        asChild
+        cursor="pointer"
+      >
+        <NextLink href={`https://${link}`} target="_blank" scroll={false}>
+          <Image
+            src={thumbnail}
+            alt={title}
+            className="grid-item-thumbnail"
+            placeholder="blur"
+            style={{ borderRadius: '10px' }}
+          />
+          <LinkOverlay asChild>
+            <Text mt={2} fontSize={20}>
+              {title}
+            </Text>
+          </LinkOverlay>
+          <Text fontSize={14}>{children}</Text>
+        </NextLink>
+      </LinkBox>
+    ) : (
+      <Box>
+        <Image
+          src={thumbnail}
+          alt={title}
+          className="grid-item-thumbnail"
+          placeholder="blur"
+          style={{ borderRadius: '10px' }}
+        />
         <Text mt={2} fontSize={20}>
           {title}
         </Text>
-      </LinkOverlay>
-      <Text fontSize={14}>{children}</Text>
-    </LinkBox>
+        <Text fontSize={14}>{children}</Text>
+      </Box>
+    )}
   </Box>
 )
 
 export const GridItemStyle = () => (
-  <Global
-    styles={`
-      .grid-item-thumbnail {
-        border-radius: 10px;
-      }
-    `}
-  />
+  <style jsx global>{`
+    .grid-item-thumbnail {
+      border-radius: 10px;
+    }
+  `}</style>
 )

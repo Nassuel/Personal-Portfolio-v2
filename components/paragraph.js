@@ -1,14 +1,21 @@
-import styled from '@emotion/styled'
+import { chakra } from '@chakra-ui/react'
 
-const Paragraph = styled.p`
-  text-align: justify;
-  text-indent: 1em;
-  hyphens: auto;
-`
-const ParagraphClean = styled.p`
-  text-align: justify;
-  text-indent: .05em;
-  hyphens: auto;
-`
+const Paragraph = (props) => (
+  <chakra.p
+    textAlign="justify"
+    textIndent="1em"
+    css={{ hyphens: 'auto' }}
+    {...props}
+  />
+)
+
+const ParagraphClean = (props) => (
+  <chakra.p
+    textAlign="justify"
+    textIndent="0.05em"
+    css={{ hyphens: 'auto' }}
+    {...props}
+  />
+)
 
 export { Paragraph, ParagraphClean }

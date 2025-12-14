@@ -4,6 +4,7 @@ import Section from '../components/section'
 import { WorkGridItem } from '../components/grid-item'
 
 import contosoCrafts from '../public/images/personal_projects/contoso-crafts-landing.png'
+import kingdomTools from '../public/images/freelancing/kingdom-tools.png'
 
 const Freelancing = () => (
   <Layout title="Freelancing">
@@ -15,7 +16,7 @@ const Freelancing = () => (
       <SimpleGrid columns={[1, 1, 2]} gap={6}>
         <Section>
           <WorkGridItem
-            title="ContosoCrafts Project"
+            title="ContosoCrafts - SuperNova"
             thumbnail={contosoCrafts}
             link="5110team1supernova2.azurewebsites.net"
           >
@@ -24,9 +25,22 @@ const Freelancing = () => (
           </WorkGridItem>
         </Section>
       </SimpleGrid>
+
+      <Heading as="h3" fontSize={20} mb={4}>
+        Personal
+      </Heading>
+      <SimpleGrid columns={[1, 1, 2]} gap={6}>
+        <Section>
+          <WorkGridItem title="Kingdom Tools" thumbnail={kingdomTools} link="">
+            Kingdom Tools is a transformative platform designed to empower
+            churches and religious organizations with innovative, AI-driven
+            tools. The website was built using Next.js and Tailwind CSS with
+            shadcn/ui. Hosted by Vercel.
+          </WorkGridItem>
+        </Section>
+      </SimpleGrid>
     </Container>
   </Layout>
 )
 
 export default Freelancing
-export { getServerSideProps } from '../components/chakra'

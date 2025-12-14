@@ -1,12 +1,19 @@
-import { Box } from '@chakra-ui/react'
-import styled from '@emotion/styled'
+import { chakra } from '@chakra-ui/react'
 
-export const AboutSection = styled(Box)`
-  padding-left: 3.4em;
-  text-indent: -3.4em;
-`
+export const AboutSection = chakra('div', {
+  base: {
+    paddingLeft: '3.4em',
+    textIndent: '-3.4em',
+    marginBottom: '0.5em',
+    '& a': {
+      display: 'inline',
+    }
+  }
+})
 
-export const AboutYear = styled.span`
-  font-weight: bold;
-  margin-right: 1em;
-`
+export const AboutYear = chakra('span', {
+  base: {
+    fontWeight: 'bold',
+    marginRight: '1em',
+  }
+})

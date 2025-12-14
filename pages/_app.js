@@ -10,7 +10,7 @@ if (typeof window !== 'undefined') {
 
 function Website({ Component, pageProps, router }) {
   return (
-    <Chakra cookies={pageProps.cookies}>
+    <Chakra>
       <Fonts />
       <Layout router={router}>
         <AnimatePresence

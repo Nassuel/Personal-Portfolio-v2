@@ -1,6 +1,6 @@
 import Logo from './logo'
 import NextLink from 'next/link'
-import { forwardRef } from 'react'
+import { forwardRef, useEffect, useState } from 'react'
 import {
   Container,
   Box,
@@ -8,25 +8,34 @@ import {
   Stack,
   Heading,
   Flex,
-  Menu,
-  MenuItem,
-  MenuButton,
-  MenuList,
-  IconButton,
-  useColorModeValue
+  IconButton
 } from '@chakra-ui/react'
-import { HamburgerIcon } from '@chakra-ui/icons'
-import { IoCodeWorking, IoHomeSharp, IoPerson } from 'react-icons/io5'
+import {
+  MenuRoot,
+  MenuTrigger,
+  MenuContent,
+  MenuItem
+} from '@chakra-ui/react'
+import { IoCodeWorking, IoHomeSharp, IoPerson, IoMenu } from 'react-icons/io5'
+import { useTheme } from 'next-themes'
 import ThemeToggleButton from './theme-toggle-button'
 
 const LinkItem = ({ href, path, target, children, ...props }) => {
+  const { resolvedTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
   const active = path === href
-  const inactiveColor = useColorModeValue('gray.800', 'whiteAlpha.900')
-  const bgThemeColor = useColorModeValue('grassTeal', 'grassTealDark')
+  const isDark = mounted && resolvedTheme === 'dark'
+  const inactiveColor = isDark ? 'whiteAlpha.900' : 'gray.800'
+  const bgThemeColor = isDark ? 'grassTealDark' : 'grassTeal'
+
   return (
     <Link
-      as={NextLink}
-      href={href}
+      asChild
       scroll={false}
       p={2}
       bg={active ? bgThemeColor : undefined}
@@ -35,24 +44,39 @@ const LinkItem = ({ href, path, target, children, ...props }) => {
       target={target}
       {...props}
     >
-      {children}
+      <NextLink href={href}>
+        {children}
+      </NextLink>
     </Link>
   )
 }
 
-const MenuLink = forwardRef((props, ref) => (
-  <Link ref={ref} as={NextLink} {...props} />
+const MenuLink = forwardRef(({ href, children, ...props }, ref) => (
+  <NextLink href={href} ref={ref} {...props}>
+    {children}
+  </NextLink>
 ))
+MenuLink.displayName = 'MenuLink'
 
 const Navbar = props => {
   const { path } = props
+  const { resolvedTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  const isDark = mounted && resolvedTheme === 'dark'
+  const navBg = isDark ? '#20202380' : '#ffffff40'
+  const menuBg = isDark ? '#8b4513' : '#ffe4c4'
 
   return (
     <Box
       position="fixed"
       as="nav"
       w="100%"
-      bg={useColorModeValue('#ffffff40', '#20202380')}
+      bg={navBg}
       css={{ backdropFilter: 'blur(10px)' }}
       zIndex={2}
       {...props}
@@ -60,17 +84,16 @@ const Navbar = props => {
       <Container
         display="flex"
         p={2}
-        maxW="container.lg"
-        wrap="wrap"
-        align="center"
-        justify="space-between"
+        maxW="6xl"
+        flexWrap="wrap"
+        alignItems="center"
+        justifyContent="space-between"
       >
         <Flex align="center" mr={5}>
           <Heading as="h1" size="lg" letterSpacing={'tighter'}>
             <Logo />
           </Heading>
         </Flex>
-
         <Stack
           direction={{ base: 'column', md: 'row' }}
           display={{ base: 'none', md: 'flex' }}
@@ -89,41 +112,49 @@ const Navbar = props => {
             Personal Projects
           </LinkItem>
         </Stack>
-
-        <Box flex={1} align="right">
+        <Box flex={1} textAlign="right">
           <ThemeToggleButton />
-
           <Box
             ml={2}
-            bg={useColorModeValue('#ffe4c4', '#8b4513')}
+            bg={menuBg}
             display={{ base: 'inline-block', md: 'none' }}
           >
-            <Menu
-              colorScheme={useColorModeValue('#ffffff40', '#20202380')}
-              isLazy
-              id="navbar-menu"
-            >
-              <MenuButton
-                as={IconButton}
-                icon={<HamburgerIcon />}
-                variant="outline"
-                aria-label="Options"
-              />
-              <MenuList>
-                <MenuItem as={MenuLink} href="/" gap={2}>
-                  <IoHomeSharp />
-                  Home
+            <MenuRoot lazyMount id="navbar-menu">
+              <MenuTrigger asChild>
+                <IconButton
+                  variant="outline"
+                  aria-label="Options"
+                >
+                  <IoMenu />
+                </IconButton>
+              </MenuTrigger>
+              <MenuContent>
+                <MenuItem value="home" asChild>
+                  <MenuLink href="/">
+                    <IoHomeSharp />
+                    Home
+                  </MenuLink>
                 </MenuItem>
-                <MenuItem as={MenuLink} href="/about" gap={2}>
-                  <IoPerson />
-                  About
+                <MenuItem value="about" asChild>
+                  <MenuLink href="/about">
+                    <IoPerson />
+                    About
+                  </MenuLink>
                 </MenuItem>
-                <MenuItem as={MenuLink} href="/freelancing" gap={2}>
-                  <IoCodeWorking />
-                  Freelancing
+                <MenuItem value="freelancing" asChild>
+                  <MenuLink href="/freelancing">
+                    <IoCodeWorking />
+                    Freelancing
+                  </MenuLink>
                 </MenuItem>
-              </MenuList>
-            </Menu>
+                <MenuItem value="personal-projects" asChild>
+                  <MenuLink href="/personal-projects">
+                    <IoCodeWorking />
+                    Personal Projects
+                  </MenuLink>
+                </MenuItem>
+              </MenuContent>
+            </MenuRoot>
           </Box>
         </Box>
       </Container>

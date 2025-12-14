@@ -1,15 +1,28 @@
 import { AnimatePresence, motion } from 'framer-motion'
-import { IconButton, useColorMode, useColorModeValue } from '@chakra-ui/react'
-import { SunIcon, MoonIcon } from '@chakra-ui/icons'
+import { IconButton } from '@chakra-ui/react'
+import { useTheme } from 'next-themes'
+import { useEffect, useState } from 'react'
+import { IoSunny, IoMoon } from 'react-icons/io5'
 
 const ThemeToggleButton = () => {
-  const { toggleColorMode } = useColorMode()
+  const { setTheme, resolvedTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) {
+    return <IconButton aria-label="Toggle theme" variant="outline" />
+  }
+
+  const isDark = resolvedTheme === 'dark'
 
   return (
-    <AnimatePresence mode='wait' initial={false}>
+    <AnimatePresence mode="wait" initial={false}>
       <motion.div
         style={{ display: 'inline-block' }}
-        key={useColorModeValue('light', 'dark')}
+        key={isDark ? 'dark' : 'light'}
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: 20, opacity: 0 }}
@@ -17,10 +30,12 @@ const ThemeToggleButton = () => {
       >
         <IconButton
           aria-label="Toggle theme"
-          colorScheme={useColorModeValue('blue', 'yellow')}
-          icon={useColorModeValue(<MoonIcon />, <SunIcon />)}
-          onClick={toggleColorMode}
-        ></IconButton>
+          colorPalette={isDark ? 'yellow' : 'blue'}
+          variant="outline"
+          onClick={() => setTheme(isDark ? 'light' : 'dark')}
+        >
+          {isDark ? <IoSunny /> : <IoMoon />}
+        </IconButton>
       </motion.div>
     </AnimatePresence>
   )

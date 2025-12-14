@@ -1,33 +1,48 @@
 import Link from 'next/link'
-import { Text, useColorModeValue } from '@chakra-ui/react'
-import styled from '@emotion/styled'
+import { Text, chakra } from '@chakra-ui/react'
+import { useTheme } from 'next-themes'
+import { useEffect, useState } from 'react'
 
-const LogoBox = styled.span`
-  font-weight: regular;
-  font-size: 40px;
-  display: inline-flex;
-  align-items: center;
-  height: 30px;
-  line-height: 20px;
-  padding: 10px;
-
-  > svg {
-    transition: 200ms ease;
+const LogoBox = chakra('span', {
+  base: {
+    fontWeight: 'normal',
+    fontSize: '40px',
+    display: 'inline-flex',
+    alignItems: 'center',
+    height: '30px',
+    lineHeight: '20px',
+    padding: '10px',
+    '& > svg': {
+      transition: '200ms ease'
+    },
+    '&:hover > svg': {
+      transform: 'rotate(20deg)'
+    }
   }
-
-  &:hover > svg {
-    transform: rotate(20deg);
-  }
-`
+})
 
 const Logo = () => {
+  const { resolvedTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  // Avoid hydration mismatch
+  const textColor = !mounted 
+    ? 'gray.800' 
+    : resolvedTheme === 'dark' 
+      ? 'whiteAlpha.900' 
+      : 'gray.800'
+
   return (
     <Link href="/" scroll={false}>
       <LogoBox>
         <Text
-          color={useColorModeValue('gray.800', 'whiteAlpha.900')}
+          color={textColor}
           fontFamily="Babylonica"
-          fontWeight="regular"
+          fontWeight="normal"
         >
           Nassuel Valera Cuevas
         </Text>

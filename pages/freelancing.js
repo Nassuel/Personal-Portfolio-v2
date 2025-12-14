@@ -4,7 +4,6 @@ import Section from '../components/section'
 import { WorkGridItem } from '../components/grid-item'
 
 import gianConstruction from '../public/images/freelancing/gian-construction-landing.png'
-import kingdomTools from '../public/images/freelancing/kingdom-tools.png'
 import parentsForSafeChildcare from '../public/images/freelancing/LogoPurpFinal.webp'
 
 const Freelancing = () => (
@@ -27,14 +26,6 @@ const Freelancing = () => (
           </WorkGridItem>
         </Section>
         <Section>
-          <WorkGridItem title="Kingdom Tools" thumbnail={kingdomTools} link="">
-            Kingdom Tools is a transformative platform designed to empower
-            churches and religious organizations with innovative, AI-driven
-            tools. The website was built using Next.js and Tailwind CSS with
-            shadcn/ui. Hosted by Vercel.
-          </WorkGridItem>
-        </Section>
-        <Section>
           <WorkGridItem title="Parents for Safe Childcare" thumbnail={parentsForSafeChildcare} link="parentsforsafechildcare.org">
             Parents for safe childcare is a nonprofit organization I have volunteered
             to create a new and refreshed website for.
@@ -46,4 +37,3 @@ const Freelancing = () => (
 )
 
 export default Freelancing
-export { getServerSideProps } from '../components/chakra'

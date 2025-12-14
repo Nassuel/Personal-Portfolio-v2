@@ -13,13 +13,9 @@ import { Paragraph, ParagraphClean } from '../components/paragraph'
 const About = () => (
   <Layout title="About">
     <Container maxW="container.sm" py={10}>
-      <Heading as="h1" variant="page-title" mb="3">
-        Nassuel Valera Cuevas
-      </Heading>
       <Heading as="h3" variant="section-title" fontSize={20} mb={4}>
         About
       </Heading>
-
       <SimpleGrid columns={[1, 1, 1]} gap={2}>
         <Section>
           <Paragraph>{aboutMe.paragraph1}</Paragraph>
@@ -32,7 +28,7 @@ const About = () => (
             <AboutSection key={index}>
               <AboutYear>{data.date}</AboutYear>
               <b>{data.title}</b> at{' '}
-              <Link href={`https://${data.link}`} target="_blank">
+              <Link color="link.color" href={`https://${data.link}`} target="_blank">
                 {data.company}
               </Link>
               <ParagraphClean>{data.description}</ParagraphClean>
@@ -46,11 +42,11 @@ const About = () => (
           {educationData.map((data, index) => (
             <AboutSection key={index}>
               <AboutYear>
-                {data.startDate}-{data.endDate}
+                {data.startDate} - {data.endDate}
               </AboutYear>
               {data.degreeType} in {data.major}
               {data.minor !== '' && `. Minor in ${data.minor}`} at{' '}
-              <Link href={`https://${data.schoolLink}`} target="_blank">
+              <Link color="link.color" href={`https://${data.schoolLink}`} target="_blank">
                 {data.school}
               </Link>
             </AboutSection>
@@ -62,7 +58,7 @@ const About = () => (
           </Heading>
           {certificationData.map(({ link, name }, index) => (
             <AboutSection key={index}>
-              <Link href={`https://${link}`} target="_blank">
+              <Link color="link.color" href={`https://${link}`} target="_blank">
                 {name}
               </Link>
             </AboutSection>
@@ -74,4 +70,3 @@ const About = () => (
 )
 
 export default About
-export { getServerSideProps } from '../components/chakra'

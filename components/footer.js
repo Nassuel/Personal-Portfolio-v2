@@ -6,7 +6,7 @@ const Footer = () => {
     <Box align="center" opacity={0.6} fontSize="md" mb="10">
       &copy; {new Date().getFullYear()} Nassuel Valera Cuevas. All Rights
       Reserved | Scaffolding by{' '}
-      <Link as={NextLink} href="https://www.craftz.dog" passHref target="_blank">
+      <Link color="link.color" as={NextLink} href="https://www.craftz.dog" passHref target="_blank">
         Takuya Matsuyama
       </Link>
     </Box>
