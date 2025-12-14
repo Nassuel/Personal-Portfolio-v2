@@ -66,8 +66,7 @@ const Home = () => (
             <NextLink href="https://seattleu.edu" target="_blank">
               Seattle University
             </NextLink>
-          </ChakraLink>
-          <br />
+          </ChakraLink>{" "}
           Minor in Computer Science
         </BioSection>
         <BioSection>
@@ -89,7 +88,7 @@ const Home = () => (
         <BioSection>
           <BioYear>2018</BioYear>
           Business Intelligence Intern at{' '}
-          <ChakraLink asChild>
+          <ChakraLink asChild color="link.color">
             <NextLink href="https://t-mobile.com" target="_blank">T-Mobile</NextLink>
           </ChakraLink>
         </BioSection>
@@ -115,14 +114,14 @@ const Home = () => (
         <BioSection>
           <BioYear>2024 - 2025</BioYear>
           Digital Ministries Coordinator at{' '}
-          <ChakraLink asChild>
+          <ChakraLink asChild color="link.color">
             <NextLink href="https://www.betaniaeverett.com/" target="_blank">Betania</NextLink>
           </ChakraLink>
         </BioSection>
         <BioSection>
           <BioYear>2019 - Present</BioYear>
           Audio/Network Engineer at{' '}
-          <ChakraLink asChild>
+          <ChakraLink asChild color="link.color">
             <NextLink href="https://www.instagram.com/cfceverett/" target="_blank">CFC Everett</NextLink>
           </ChakraLink>
         </BioSection>
