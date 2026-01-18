@@ -26,7 +26,7 @@ const Freelancing = () => (
           </WorkGridItem>
         </Section>
         <Section>
-          <WorkGridItem title="Parents for Safe Childcare" thumbnail={parentsForSafeChildcare} link="parentsforsafechildcare.org">
+          <WorkGridItem title="Parents for Safe Childcare" thumbnail={parentsForSafeChildcare} link="www.parentsforsafechildcare.org">
             Parents for safe childcare is a nonprofit organization I have volunteered
             to create a new and refreshed website for.
           </WorkGridItem>
