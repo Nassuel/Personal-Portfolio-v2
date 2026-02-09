@@ -13,7 +13,7 @@ const Main = ({ children, router }) => {
                 />
                 <meta name="description" content="Nassuel's homepage" />
                 <meta name="author" content="Nassuel Valera Cuevas" />
-                <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+                <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
                 <link
                     rel="shortcut icon"
                     href="/favicon.ico"
