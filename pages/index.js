@@ -34,6 +34,18 @@ const Home = () => (
                 </Heading>
                 <BioSection>
                     <BioYear>2025 to now</BioYear>
+                    Sr. Technology Asset Specialist | Asset Engineer at{" "}
+                    <ChakraLink asChild color="link.color">
+                        <NextLink
+                            href="https://www.smartsheet.com"
+                            target="_blank"
+                        >
+                            Smartsheet
+                        </NextLink>
+                    </ChakraLink>
+                </BioSection>
+                <BioSection>
+                    <BioYear>2025 to 2026</BioYear>
                     IT Asset Manager at{" "}
                     <ChakraLink asChild color="link.color">
                         <NextLink
