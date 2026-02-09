@@ -45,7 +45,7 @@ const Home = () => (
                     </ChakraLink>
                 </BioSection>
                 <BioSection>
-                    <BioYear>2025 to 2026</BioYear>
+                    <BioYear>2025</BioYear>
                     IT Asset Manager at{" "}
                     <ChakraLink asChild color="link.color">
                         <NextLink
