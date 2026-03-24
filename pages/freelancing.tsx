@@ -1,7 +1,7 @@
 import { Container, Heading, SimpleGrid } from "@chakra-ui/react";
 import Layout from "../components/layouts/article";
 import Section from "../components/section";
-import { WorkGridItem } from "../components/grid-item";
+import { WorkGridItem } from "@/components/grid-item";
 
 import gianConstruction from "../public/images/freelancing/gian-construction-landing.png";
 import parentsForSafeChildcare from "../public/images/freelancing/LogoPurpFinal.webp";
