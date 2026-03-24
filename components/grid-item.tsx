@@ -21,7 +21,7 @@ export const GridItem = ({
             <Image
                 src={thumbnail}
                 alt={title}
-                className="grid-item-thumbnail"
+
                 placeholder="blur"
                 loading="lazy"
                 style={{ borderRadius: "10px" }}
@@ -58,9 +58,9 @@ export const WorkGridItem = ({
                     <Image
                         src={thumbnail}
                         alt={title}
-                        className="grid-item-thumbnail"
+        
                         placeholder="blur"
-                        style={{ borderRadius: "10px" }}
+                        style={{ borderRadius: "10px", margin: "0 auto" }}
                     />
                     <LinkOverlay asChild>
                         <Text mt={2} fontSize={20}>
@@ -75,9 +75,9 @@ export const WorkGridItem = ({
                 <Image
                     src={thumbnail}
                     alt={title}
-                    className="grid-item-thumbnail"
+    
                     placeholder="blur"
-                    style={{ borderRadius: "10px" }}
+                    style={{ borderRadius: "10px", margin: "0 auto" }}
                 />
                 <Text mt={2} fontSize={20}>
                     {title}
@@ -88,10 +88,3 @@ export const WorkGridItem = ({
     </Box>
 );
 
-export const GridItemStyle = () => (
-    <style jsx global>{`
-        .grid-item-thumbnail {
-            border-radius: 10px;
-        }
-    `}</style>
-);
