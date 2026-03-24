@@ -1,5 +1,7 @@
+import type { SVGProps } from "react";
+
 // Dominican Republic flag icon as an inline SVG React component
-const FlagIcon = (props: React.SVGProps<SVGSVGElement>) => (
+const FlagIcon = (props: SVGProps<SVGSVGElement>) => (
     <svg viewBox="0 0 44 30" width={44} height={30} {...props}>
         <rect x="0" y="0" width="44" height="30" fill="rgb(100%,100%,100%)" />
         <path
