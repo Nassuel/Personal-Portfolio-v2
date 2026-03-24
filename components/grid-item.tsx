@@ -1,10 +1,10 @@
+import type { ReactNode } from "react";
 import NextLink from "next/link";
 import Image, { type StaticImageData } from "next/image";
 import { Box, LinkBox, LinkOverlay, Text } from "@chakra-ui/react";
-import React from "react";
 
 interface GridItemProps {
-    children: React.ReactNode;
+    children: ReactNode;
     href: string;
     title: string;
     thumbnail: StaticImageData;
@@ -35,7 +35,7 @@ export const GridItem = ({
 );
 
 interface WorkGridItemProps {
-    children: React.ReactNode;
+    children: ReactNode;
     title: string;
     thumbnail: StaticImageData;
     link?: string;
