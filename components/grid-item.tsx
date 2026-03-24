@@ -3,37 +3,6 @@ import NextLink from "next/link";
 import Image, { type StaticImageData } from "next/image";
 import { Box, LinkBox, LinkOverlay, Text } from "@chakra-ui/react";
 
-interface GridItemProps {
-    children: ReactNode;
-    href: string;
-    title: string;
-    thumbnail: StaticImageData;
-}
-
-export const GridItem = ({
-    children,
-    href,
-    title,
-    thumbnail
-}: GridItemProps) => (
-    <Box w="100%" textAlign="center">
-        <LinkBox cursor="pointer">
-            <Image
-                src={thumbnail}
-                alt={title}
-
-                placeholder="blur"
-                loading="lazy"
-                style={{ borderRadius: "10px" }}
-            />
-            <LinkOverlay href={href} target="_blank">
-                <Text mt={2}>{title}</Text>
-            </LinkOverlay>
-            <Text fontSize={14}>{children}</Text>
-        </LinkBox>
-    </Box>
-);
-
 interface WorkGridItemProps {
     children: ReactNode;
     title: string;
@@ -58,7 +27,6 @@ export const WorkGridItem = ({
                     <Image
                         src={thumbnail}
                         alt={title}
-        
                         placeholder="blur"
                         style={{ borderRadius: "10px", margin: "0 auto" }}
                     />
@@ -75,7 +43,6 @@ export const WorkGridItem = ({
                 <Image
                     src={thumbnail}
                     alt={title}
-    
                     placeholder="blur"
                     style={{ borderRadius: "10px", margin: "0 auto" }}
                 />
@@ -87,4 +54,3 @@ export const WorkGridItem = ({
         )}
     </Box>
 );
-
