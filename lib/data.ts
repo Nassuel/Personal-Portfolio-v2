@@ -49,7 +49,7 @@ export interface Socials {
     email: string;
 }
 
-export const experiencesData: Experience[] = [
+export const experiencesData: readonly Experience[] = [
     {
         title: "Sr. Technology Asset Specialist | Asset Engineer",
         company: "Smartsheet",
@@ -181,7 +181,7 @@ export const experiencesData: Experience[] = [
     }
 ];
 
-export const educationData: Education[] = [
+export const educationData: readonly Education[] = [
     {
         school: "Seattle University",
         schoolLink: "seattleu.edu",
@@ -211,7 +211,7 @@ export const educationData: Education[] = [
     }
 ];
 
-export const skillsData: Skill[] = [
+export const skillsData: readonly Skill[] = [
     { skill: "JavaScript", link: "www.javascript.com/" },
     { skill: "TypeScript", link: "www.typescriptlang.org/" },
     { skill: "Python", link: "www.python.org/" },
@@ -237,7 +237,7 @@ export const skillsData: Skill[] = [
     { skill: "Express.js", link: "" }
 ];
 
-export const certificationData: Certification[] = [
+export const certificationData: readonly Certification[] = [
     {
         name: "Software Engineer",
         link: "www.hackerrank.com/certificates/009db8cf9566"
