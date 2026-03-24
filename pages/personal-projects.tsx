@@ -1,7 +1,7 @@
 import { Container, Heading, SimpleGrid } from "@chakra-ui/react";
 import Layout from "../components/layouts/article";
 import Section from "../components/section";
-import { WorkGridItem } from "../components/grid-item";
+import { WorkGridItem } from "@/components/grid-item";
 
 import contosoCrafts from "../public/images/personal_projects/contoso-crafts-landing.png";
 import kingdomTools from "../public/images/freelancing/kingdom-tools.png";
