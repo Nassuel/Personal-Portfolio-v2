@@ -1,4 +1,5 @@
 import { forwardRef } from "react";
+import type { ReactNode } from "react";
 import { Box, Spinner } from "@chakra-ui/react";
 
 export const DogSpinner = () => (
@@ -13,7 +14,7 @@ export const DogSpinner = () => (
 );
 
 interface DogContainerProps {
-    children: React.ReactNode;
+    children: ReactNode;
 }
 
 export const DogContainer = forwardRef<HTMLDivElement, DogContainerProps>(

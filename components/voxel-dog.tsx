@@ -38,8 +38,7 @@ const VoxelDog = () => {
             });
             renderer.setPixelRatio(window.devicePixelRatio);
             renderer.setSize(scW, scH);
-            (renderer as unknown as { outputEncoding: number }).outputEncoding =
-                (THREE as unknown as { sRGBEncoding: number }).sRGBEncoding;
+            renderer.outputColorSpace = THREE.SRGBColorSpace;
             container.appendChild(renderer.domElement);
             refRenderer.current = renderer;
             const scene = new THREE.Scene();
