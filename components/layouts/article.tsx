@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { motion } from "framer-motion";
 import Head from "next/head";
 import { GridItemStyle } from "../grid-item";
@@ -9,7 +10,7 @@ const variants = {
 };
 
 interface LayoutProps {
-    children: React.ReactNode;
+    children: ReactNode;
     title?: string;
 }
 
