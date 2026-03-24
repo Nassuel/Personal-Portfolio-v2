@@ -1,10 +1,11 @@
+import type { ReactNode } from "react";
 import { motion } from "framer-motion";
 import { Box } from "@chakra-ui/react";
 
 const MotionBox = motion.create(Box);
 
 interface SectionProps {
-    children: React.ReactNode;
+    children: ReactNode;
     delay?: number;
 }
 
