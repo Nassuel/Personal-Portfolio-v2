@@ -9,12 +9,12 @@ import {
     Separator,
     HStack
 } from "@chakra-ui/react";
-import { BioSection, BioYear } from "../components/bio";
+import { BioSection, BioYear } from "@/components/bio";
 import Layout from "../components/layouts/article";
 import Section from "../components/section";
 import { IoLogoInstagram, IoLogoGithub, IoLogoLinkedin } from "react-icons/io5";
 import { MdEmail } from "react-icons/md";
-import { socials } from "../lib/data";
+import { socials } from "@/lib/data";
 
 const Home = () => (
     <Layout>
