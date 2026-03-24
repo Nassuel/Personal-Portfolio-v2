@@ -1,4 +1,6 @@
-const RefreshCWIcon = (props: React.SVGProps<SVGSVGElement>) => (
+import type { SVGProps } from "react";
+
+const RefreshCWIcon = (props: SVGProps<SVGSVGElement>) => (
     <svg
         width={24}
         height={24}
