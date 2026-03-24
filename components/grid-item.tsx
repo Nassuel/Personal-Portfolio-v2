@@ -1,6 +1,7 @@
 import NextLink from "next/link";
 import Image, { type StaticImageData } from "next/image";
-import { Box, Text, LinkBox, LinkOverlay } from "@chakra-ui/react";
+import { Box, LinkBox, LinkOverlay, Text } from "@chakra-ui/react";
+import React from "react";
 
 interface GridItemProps {
     children: React.ReactNode;
@@ -9,7 +10,12 @@ interface GridItemProps {
     thumbnail: StaticImageData;
 }
 
-export const GridItem = ({ children, href, title, thumbnail }: GridItemProps) => (
+export const GridItem = ({
+    children,
+    href,
+    title,
+    thumbnail
+}: GridItemProps) => (
     <Box w="100%" textAlign="center">
         <LinkBox cursor="pointer">
             <Image
@@ -35,7 +41,12 @@ interface WorkGridItemProps {
     link?: string;
 }
 
-export const WorkGridItem = ({ children, title, thumbnail, link = "" }: WorkGridItemProps) => (
+export const WorkGridItem = ({
+    children,
+    title,
+    thumbnail,
+    link = ""
+}: WorkGridItemProps) => (
     <Box w="100%" textAlign="center">
         {link ? (
             <LinkBox asChild cursor="pointer">
