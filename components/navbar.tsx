@@ -1,27 +1,27 @@
-import Logo from "./logo";
-import NextLink from "next/link";
+import type { ComponentPropsWithoutRef, ReactNode } from "react";
 import { forwardRef, useEffect, useState } from "react";
+import NextLink from "next/link";
 import {
-    Container,
     Box,
+    Container,
+    Flex,
+    Heading,
+    IconButton,
     Link,
     Stack,
-    Heading,
-    Flex,
-    IconButton,
-    type BoxProps
+    type BoxProps,
+    type LinkProps
 } from "@chakra-ui/react";
-import { MenuRoot, MenuTrigger, MenuContent, MenuItem } from "@chakra-ui/react";
-import { IoCodeWorking, IoHomeSharp, IoPerson, IoMenu } from "react-icons/io5";
+import { MenuContent, MenuItem, MenuRoot, MenuTrigger } from "@chakra-ui/react";
+import { IoCodeWorking, IoHomeSharp, IoMenu, IoPerson } from "react-icons/io5";
 import { useTheme } from "next-themes";
+import Logo from "./logo";
 import ThemeToggleButton from "./theme-toggle-button";
 
-interface LinkItemProps {
+interface LinkItemProps extends Omit<LinkProps, "href" | "children"> {
     href: string;
     path: string;
-    target?: string;
-    children: React.ReactNode;
-    [key: string]: unknown;
+    children: ReactNode;
 }
 
 const LinkItem = ({ href, path, target, children, ...props }: LinkItemProps) => {
@@ -52,9 +52,9 @@ const LinkItem = ({ href, path, target, children, ...props }: LinkItemProps) => 
     );
 };
 
-interface MenuLinkProps extends React.ComponentPropsWithoutRef<"a"> {
+interface MenuLinkProps extends ComponentPropsWithoutRef<"a"> {
     href: string;
-    children: React.ReactNode;
+    children: ReactNode;
 }
 
 const MenuLink = forwardRef<HTMLAnchorElement, MenuLinkProps>(
