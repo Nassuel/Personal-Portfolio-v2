@@ -1,9 +1,15 @@
+import type { ReactNode } from "react";
 import { motion } from "framer-motion";
 import { Box } from "@chakra-ui/react";
 
 const MotionBox = motion.create(Box);
 
-const Section = ({ children, delay = 0 }) => (
+interface SectionProps {
+    children: ReactNode;
+    delay?: number;
+}
+
+const Section = ({ children, delay = 0 }: SectionProps) => (
     <MotionBox
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}

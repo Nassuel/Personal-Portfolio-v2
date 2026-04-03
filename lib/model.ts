@@ -1,15 +1,22 @@
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import * as THREE from "three";
+import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import type { GLTF } from "three/addons/loaders/GLTFLoader.js";
 import { DRACOLoader } from "three/addons/loaders/DRACOLoader.js";
 
 const draco = new DRACOLoader();
 draco.setDecoderConfig({ type: "js" });
 draco.setDecoderPath("https://www.gstatic.com/draco/v1/decoders/");
 
+interface LoadGLTFModelOptions {
+    receiveShadow: boolean;
+    castShadow: boolean;
+}
+
 export function loadGLTFModel(
-    scene,
-    glbPath,
-    options = { receiveShadow: true, castShadow: true }
-) {
+    scene: THREE.Scene,
+    glbPath: string,
+    options: LoadGLTFModelOptions = { receiveShadow: true, castShadow: true }
+): Promise<THREE.Object3D> {
     const { receiveShadow, castShadow } = options;
     return new Promise((resolve, reject) => {
         const loader = new GLTFLoader();
@@ -17,7 +24,7 @@ export function loadGLTFModel(
 
         loader.load(
             glbPath,
-            gltf => {
+            (gltf: GLTF) => {
                 const obj = gltf.scene;
                 obj.name = "dog";
                 obj.position.y = 0;
@@ -26,16 +33,16 @@ export function loadGLTFModel(
                 obj.castShadow = castShadow;
                 scene.add(obj);
 
-                obj.traverse(function (child) {
-                    if (child.isMesh) {
-                        child.castShadow = castShadow;
-                        child.receiveShadow = receiveShadow;
+                obj.traverse(function (child: THREE.Object3D) {
+                    if ((child as THREE.Mesh).isMesh) {
+                        (child as THREE.Mesh).castShadow = castShadow;
+                        (child as THREE.Mesh).receiveShadow = receiveShadow;
                     }
                 });
                 resolve(obj);
             },
             undefined,
-            function (error) {
+            (error: unknown) => {
                 reject(error);
             }
         );

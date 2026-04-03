@@ -1,21 +1,30 @@
-import Logo from "./logo";
-import NextLink from "next/link";
+import type { ComponentPropsWithoutRef, ReactNode } from "react";
 import { forwardRef, useEffect, useState } from "react";
+import NextLink from "next/link";
 import {
-    Container,
     Box,
+    Container,
+    Flex,
+    Heading,
+    IconButton,
     Link,
     Stack,
-    Heading,
-    Flex,
-    IconButton
+    type BoxProps,
+    type LinkProps
 } from "@chakra-ui/react";
-import { MenuRoot, MenuTrigger, MenuContent, MenuItem } from "@chakra-ui/react";
-import { IoCodeWorking, IoHomeSharp, IoPerson, IoMenu } from "react-icons/io5";
+import { MenuContent, MenuItem, MenuRoot, MenuTrigger } from "@chakra-ui/react";
+import { IoCodeWorking, IoHomeSharp, IoMenu, IoPerson } from "react-icons/io5";
 import { useTheme } from "next-themes";
+import Logo from "./logo";
 import ThemeToggleButton from "./theme-toggle-button";
 
-const LinkItem = ({ href, path, target, children, ...props }) => {
+interface LinkItemProps extends Omit<LinkProps, "href" | "children"> {
+    href: string;
+    path: string;
+    children: ReactNode;
+}
+
+const LinkItem = ({ href, path, target, children, ...props }: LinkItemProps) => {
     const { resolvedTheme } = useTheme();
     const [mounted, setMounted] = useState(false);
 
@@ -31,7 +40,6 @@ const LinkItem = ({ href, path, target, children, ...props }) => {
     return (
         <Link
             asChild
-            scroll={false}
             p={2}
             bg={active ? bgThemeColor : undefined}
             rounded="10"
@@ -39,20 +47,30 @@ const LinkItem = ({ href, path, target, children, ...props }) => {
             target={target}
             {...props}
         >
-            <NextLink href={href}>{children}</NextLink>
+            <NextLink href={href} scroll={false}>{children}</NextLink>
         </Link>
     );
 };
 
-const MenuLink = forwardRef(({ href, children, ...props }, ref) => (
-    <NextLink href={href} ref={ref} {...props}>
-        {children}
-    </NextLink>
-));
+interface MenuLinkProps extends ComponentPropsWithoutRef<"a"> {
+    href: string;
+    children: ReactNode;
+}
+
+const MenuLink = forwardRef<HTMLAnchorElement, MenuLinkProps>(
+    ({ href, children, ...props }, ref) => (
+        <NextLink href={href} ref={ref} {...props}>
+            {children}
+        </NextLink>
+    )
+);
 MenuLink.displayName = "MenuLink";
 
-const Navbar = props => {
-    const { path } = props;
+interface NavbarProps extends BoxProps {
+    path: string;
+}
+
+const Navbar = ({ path, ...props }: NavbarProps) => {
     const { resolvedTheme } = useTheme();
     const [mounted, setMounted] = useState(false);
 

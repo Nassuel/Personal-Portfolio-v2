@@ -1,4 +1,6 @@
-const options = {
+import type { Config } from "prettier";
+
+const config: Config = {
     arrowParens: "avoid",
     singleQuote: false,
     bracketSpacing: true,
@@ -8,4 +10,4 @@ const options = {
     trailingComma: "none"
 };
 
-module.exports = options;
+export default config;

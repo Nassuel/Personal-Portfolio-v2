@@ -1,6 +1,6 @@
-import { chakra } from "@chakra-ui/react";
+import { chakra, type HTMLChakraProps } from "@chakra-ui/react";
 
-const Paragraph = props => (
+const Paragraph = (props: HTMLChakraProps<"p">) => (
     <chakra.p
         textAlign="justify"
         textIndent="1em"
@@ -9,7 +9,7 @@ const Paragraph = props => (
     />
 );
 
-const ParagraphClean = props => (
+const ParagraphClean = (props: HTMLChakraProps<"p">) => (
     <chakra.p
         textAlign="justify"
         textIndent="0.05em"

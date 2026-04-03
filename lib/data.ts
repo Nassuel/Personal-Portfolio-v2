@@ -1,4 +1,55 @@
-export const experiencesData = [
+export interface ExperienceIcon {
+    url: string;
+    padding: string;
+    mobilePadding: string;
+    height: number;
+    width: number;
+}
+
+export interface Experience {
+    title: string;
+    company: string;
+    location: string;
+    description: string;
+    icon: ExperienceIcon;
+    date: string;
+    link: string;
+}
+
+export interface Education {
+    school: string;
+    schoolLink: string;
+    startDate: string;
+    endDate: string;
+    degreeType: string;
+    major: string;
+    minor: string;
+}
+
+export interface Skill {
+    skill: string;
+    link: string;
+}
+
+export interface Certification {
+    name: string;
+    link: string;
+}
+
+export interface AboutMe {
+    paragraph1: string;
+    paragraph2: string;
+    paragraph3: string;
+}
+
+export interface Socials {
+    ig: string;
+    github: string;
+    linkedin: string;
+    email: string;
+}
+
+export const experiencesData: readonly Experience[] = [
     {
         title: "Sr. Technology Asset Specialist | Asset Engineer",
         company: "Smartsheet",
@@ -130,7 +181,7 @@ export const experiencesData = [
     }
 ];
 
-export const educationData = [
+export const educationData: readonly Education[] = [
     {
         school: "Seattle University",
         schoolLink: "seattleu.edu",
@@ -160,102 +211,33 @@ export const educationData = [
     }
 ];
 
-export const skillsData = [
-    {
-        skill: "JavaScript",
-        link: "www.javascript.com/"
-    },
-    {
-        skill: "TypeScript",
-        link: "www.typescriptlang.org/"
-    },
-    {
-        skill: "Python",
-        link: "www.python.org/"
-    },
-    {
-        skill: "Next.js",
-        link: "nextjs.org/"
-    },
-    {
-        skill: "Node.js",
-        link: "nodejs.org/en/about"
-    },
-    {
-        skill: "Agile",
-        link: "en.wikipedia.org/wiki/Agile_software_development"
-    },
-    {
-        skill: "Apache Spark",
-        link: "spark.apache.org/"
-    },
-    {
-        skill: "AWS",
-        link: "aws.amazon.com/what-is-aws/?nc1=f_cc"
-    },
-    {
-        skill: "Confluence",
-        link: "www.atlassian.com/software/confluence"
-    },
-    {
-        skill: "Data Structures & Algorithms",
-        link: ""
-    },
-    {
-        skill: "Development Operations (DevOps)",
-        link: ""
-    },
-    {
-        skill: "Docker",
-        link: ""
-    },
-    {
-        skill: "Figma",
-        link: ""
-    },
-    {
-        skill: "Git",
-        link: ""
-    },
-    {
-        skill: "HTML/CSS",
-        link: ""
-    },
-    {
-        skill: "Linux/Unix",
-        link: ""
-    },
-    {
-        skill: "Microsoft Azure",
-        link: "azure.microsoft.com/en-us"
-    },
-    {
-        skill: "Pandas",
-        link: ""
-    },
-    {
-        skill: "Postman",
-        link: ""
-    },
-    {
-        skill: "React",
-        link: ""
-    },
-    {
-        skill: "Kubernetes",
-        link: ""
-    },
-    {
-        skill: "Vue.js",
-        link: ""
-    },
-    {
-        skill: "Express.js",
-        link: ""
-    }
+export const skillsData: readonly Skill[] = [
+    { skill: "JavaScript", link: "www.javascript.com/" },
+    { skill: "TypeScript", link: "www.typescriptlang.org/" },
+    { skill: "Python", link: "www.python.org/" },
+    { skill: "Next.js", link: "nextjs.org/" },
+    { skill: "Node.js", link: "nodejs.org/en/about" },
+    { skill: "Agile", link: "en.wikipedia.org/wiki/Agile_software_development" },
+    { skill: "Apache Spark", link: "spark.apache.org/" },
+    { skill: "AWS", link: "aws.amazon.com/what-is-aws/?nc1=f_cc" },
+    { skill: "Confluence", link: "www.atlassian.com/software/confluence" },
+    { skill: "Data Structures & Algorithms", link: "" },
+    { skill: "Development Operations (DevOps)", link: "" },
+    { skill: "Docker", link: "" },
+    { skill: "Figma", link: "" },
+    { skill: "Git", link: "" },
+    { skill: "HTML/CSS", link: "" },
+    { skill: "Linux/Unix", link: "" },
+    { skill: "Microsoft Azure", link: "azure.microsoft.com/en-us" },
+    { skill: "Pandas", link: "" },
+    { skill: "Postman", link: "" },
+    { skill: "React", link: "" },
+    { skill: "Kubernetes", link: "" },
+    { skill: "Vue.js", link: "" },
+    { skill: "Express.js", link: "" }
 ];
 
-export const certificationData = [
+export const certificationData: readonly Certification[] = [
     {
         name: "Software Engineer",
         link: "www.hackerrank.com/certificates/009db8cf9566"
@@ -274,7 +256,7 @@ export const certificationData = [
     }
 ];
 
-export const aboutMe = {
+export const aboutMe: AboutMe = {
     paragraph1: `With a deep passion for programming, I thrive on the challenge of building complex web applications.
     My experience as a full-stack developer encompasses both front-end and back-end development, allowing me to craft
     seamless user experiences from the ground up. I particularly relish the intricate details of the back-end,
@@ -290,7 +272,7 @@ export const aboutMe = {
     only due to the goal they've accomplish but for their maintainability.`
 };
 
-export const socials = {
+export const socials: Socials = {
     ig: "www.instagram.com/godspeed.pictura",
     github: "github.com/nassuel",
     linkedin: "www.linkedin.com/in/nassuelvc",

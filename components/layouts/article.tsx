@@ -1,6 +1,6 @@
+import type { ReactNode } from "react";
 import { motion } from "framer-motion";
 import Head from "next/head";
-import { GridItemStyle } from "../grid-item";
 
 const variants = {
     hidden: { opacity: 0, x: 0, y: 20 },
@@ -8,7 +8,12 @@ const variants = {
     exit: { opacity: 0, x: -0, y: 20 }
 };
 
-const Layout = ({ children, title }) => {
+interface LayoutProps {
+    children: ReactNode;
+    title?: string;
+}
+
+const Layout = ({ children, title }: LayoutProps) => {
     const t = `${title} - NVC`;
     return (
         <motion.article
@@ -16,7 +21,7 @@ const Layout = ({ children, title }) => {
             animate="enter"
             exit="exit"
             variants={variants}
-            transition={{ duration: 0.4, type: "easeInOut" }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
             style={{ position: "relative", marginTop: "2rem" }}
         >
             <>
@@ -27,8 +32,6 @@ const Layout = ({ children, title }) => {
                     </Head>
                 )}
                 {children}
-
-                <GridItemStyle />
             </>
         </motion.article>
     );

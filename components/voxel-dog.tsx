@@ -1,17 +1,17 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import * as THREE from "three";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-import { loadGLTFModel } from "../lib/model";
+import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+import { loadGLTFModel } from "@/lib/model";
 import { DogSpinner, DogContainer } from "./voxel-dog-loader";
 
-function easeOutCirc(x) {
+function easeOutCirc(x: number): number {
     return Math.sqrt(1 - Math.pow(x - 1, 4));
 }
 
 const VoxelDog = () => {
-    const refContainer = useRef();
+    const refContainer = useRef<HTMLDivElement | null>(null);
     const [loading, setLoading] = useState(true);
-    const refRenderer = useRef();
+    const refRenderer = useRef<THREE.WebGLRenderer | null>(null);
     const urlDogGLB = "/koenigsegg-one.glb";
 
     const handleWindowResize = useCallback(() => {
@@ -38,7 +38,7 @@ const VoxelDog = () => {
             });
             renderer.setPixelRatio(window.devicePixelRatio);
             renderer.setSize(scW, scH);
-            renderer.outputEncoding = THREE.sRGBEncoding;
+            renderer.outputColorSpace = THREE.SRGBColorSpace;
             container.appendChild(renderer.domElement);
             refRenderer.current = renderer;
             const scene = new THREE.Scene();
@@ -79,7 +79,7 @@ const VoxelDog = () => {
                 setLoading(false);
             });
 
-            let req = null;
+            let req: number | null = null;
             let frame = 0;
             const animate = () => {
                 req = requestAnimationFrame(animate);
@@ -104,7 +104,7 @@ const VoxelDog = () => {
             };
 
             return () => {
-                cancelAnimationFrame(req);
+                if (req !== null) cancelAnimationFrame(req);
                 renderer.domElement.remove();
                 renderer.dispose();
             };

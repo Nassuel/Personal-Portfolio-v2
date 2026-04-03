@@ -25,9 +25,14 @@
         "three": "^0.182.0"
     },
     "devDependencies": {
+        "@types/node": "^25.5.0",
+        "@types/react": "^19.2.14",
+        "@types/react-dom": "^19.2.3",
+        "@types/three": "^0.183.1",
         "eslint": "^9.39.2",
         "eslint-config-next": "^16.0.10",
-        "prettier": "^3.7.4"
+        "prettier": "^3.7.4",
+        "typescript": "^5.9.3"
     },
     "engines": {
         "node": "24.x"

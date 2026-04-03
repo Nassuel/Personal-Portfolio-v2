@@ -1,19 +1,19 @@
 import { Container, Heading, SimpleGrid, Link } from "@chakra-ui/react";
 import Layout from "../components/layouts/article";
 import Section from "../components/section";
-import { AboutSection, AboutYear } from "../components/about";
+import { AboutSection, AboutYear } from "@/components/about";
 import {
     educationData,
     aboutMe,
     certificationData,
     experiencesData
-} from "../lib/data";
-import { Paragraph, ParagraphClean } from "../components/paragraph";
+} from "@/lib/data";
+import { Paragraph, ParagraphClean } from "@/components/paragraph";
 
 const About = () => (
     <Layout title="About">
         <Container maxW="container.sm" py={10}>
-            <Heading as="h3" variant="section-title" fontSize={20} mb={4}>
+            <Heading as="h3" textStyle="section-title" fontSize={20} mb={4}>
                 About
             </Heading>
             <SimpleGrid columns={[1, 1, 1]} gap={2}>
