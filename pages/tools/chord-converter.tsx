@@ -36,7 +36,7 @@ const ChordConverter = () => {
         <Heading as="h3" textStyle="section-title" fontSize={20} mb={2}>
           Chord Converter
         </Heading>
-        <Text fontSize="sm" color="gray.500" mb={6}>
+        <Text fontSize="sm" color="text.muted" mb={6}>
           Paste chord+lyric notation — output is formatted for Planning Center&apos;s chord parser.
         </Text>
 
@@ -97,7 +97,7 @@ const ChordConverter = () => {
             {/* Input */}
             <Box>
               <HStack justify="space-between" mb={2}>
-                <Text fontSize="xs" fontWeight="semibold" letterSpacing="wider" textTransform="uppercase" color="gray.500">
+                <Text fontSize="xs" fontWeight="semibold" letterSpacing="wider" textTransform="uppercase" color="text.muted">
                   Input
                 </Text>
                 <HStack gap={2}>
@@ -118,7 +118,7 @@ const ChordConverter = () => {
                 autoCapitalize="off"
                 borderColor="divider.border"
               />
-              <Text fontSize="xs" color="gray.500" mt={1}>
+              <Text fontSize="xs" color="text.muted" mt={1}>
                 Chord line above · Lyric line below · Blank lines preserved
               </Text>
             </Box>
@@ -126,7 +126,7 @@ const ChordConverter = () => {
             {/* Output */}
             <Box>
               <HStack justify="space-between" mb={2}>
-                <Text fontSize="xs" fontWeight="semibold" letterSpacing="wider" textTransform="uppercase" color="gray.500">
+                <Text fontSize="xs" fontWeight="semibold" letterSpacing="wider" textTransform="uppercase" color="text.muted">
                   Output — Planning Center
                 </Text>
                 <Button
@@ -157,12 +157,12 @@ const ChordConverter = () => {
                 overflowY="auto"
               >
                 {output ? output : (
-                  <Text color="gray.400" fontStyle="italic">
+                  <Text color="text.subtle" fontStyle="italic">
                     Output will appear here as you type…
                   </Text>
                 )}
               </Box>
-              <Text fontSize="xs" color="gray.500" mt={1}>
+              <Text fontSize="xs" color="text.muted" mt={1}>
                 Paste directly into Planning Center&apos;s chord parser
               </Text>
             </Box>
