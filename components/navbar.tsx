@@ -122,8 +122,8 @@ const Navbar = ({ path, ...props }: NavbarProps) => {
                     <LinkItem href="/personal-projects" path={path}>
                         Personal Projects
                     </LinkItem>
-                    <LinkItem href="/tools/chord-converter" path={path}>
-                        Chord Converter
+                    <LinkItem href="/tools" path={path}>
+                        Tools
                     </LinkItem>
                 </Stack>
                 <Box flex={1} textAlign="right">
@@ -167,10 +167,10 @@ const Navbar = ({ path, ...props }: NavbarProps) => {
                                         Personal Projects
                                     </MenuLink>
                                 </MenuItem>
-                                <MenuItem value="chord-converter" asChild>
-                                    <MenuLink href="/tools/chord-converter">
+                                <MenuItem value="tools" asChild>
+                                    <MenuLink href="/tools">
                                         <IoMusicalNotes />
-                                        Chord Converter
+                                        Tools
                                     </MenuLink>
                                 </MenuItem>
                             </MenuContent>
