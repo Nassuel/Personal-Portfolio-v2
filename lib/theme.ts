@@ -28,6 +28,14 @@ const customConfig = defineConfig({
                 // Divider colors
                 "divider.border": {
                     value: { base: "#000", _dark: "#fff" }
+                },
+                // Muted text (labels, hints)
+                "text.muted": {
+                    value: { base: "#705030", _dark: "#c8a080" }
+                },
+                // Subtle text (placeholders, dimmer hints)
+                "text.subtle": {
+                    value: { base: "#907060", _dark: "#a08060" }
                 }
             }
         },
