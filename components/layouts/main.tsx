@@ -11,7 +11,7 @@ interface MainProps {
 
 const Main = ({ children, router }: MainProps) => {
     return (
-        <Box as="main">
+        <Box as="main" minH="100vh" display="flex" flexDirection="column">
             <Head>
                 <meta
                     name="viewport"
@@ -37,10 +37,11 @@ const Main = ({ children, router }: MainProps) => {
 
             <NavBar path={router.asPath} />
 
-            <Container maxW="4xl" pt={8}>
+            <Container maxW="4xl" pt={8} flex={1}>
                 {children}
-                <Footer />
             </Container>
+
+            <Footer />
         </Box>
     );
 };
