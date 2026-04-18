@@ -13,7 +13,7 @@ import {
     type LinkProps
 } from "@chakra-ui/react";
 import { MenuContent, MenuItem, MenuRoot, MenuTrigger } from "@chakra-ui/react";
-import { IoCodeWorking, IoHomeSharp, IoMenu, IoPerson } from "react-icons/io5";
+import { IoCodeWorking, IoHomeSharp, IoMenu, IoPerson, IoMusicalNotes } from "react-icons/io5";
 import { useTheme } from "next-themes";
 import Logo from "./logo";
 import ThemeToggleButton from "./theme-toggle-button";
@@ -122,6 +122,9 @@ const Navbar = ({ path, ...props }: NavbarProps) => {
                     <LinkItem href="/personal-projects" path={path}>
                         Personal Projects
                     </LinkItem>
+                    <LinkItem href="/tools/chord-converter" path={path}>
+                        Chord Converter
+                    </LinkItem>
                 </Stack>
                 <Box flex={1} textAlign="right">
                     <ThemeToggleButton />
@@ -162,6 +165,12 @@ const Navbar = ({ path, ...props }: NavbarProps) => {
                                     <MenuLink href="/personal-projects">
                                         <IoCodeWorking />
                                         Personal Projects
+                                    </MenuLink>
+                                </MenuItem>
+                                <MenuItem value="chord-converter" asChild>
+                                    <MenuLink href="/tools/chord-converter">
+                                        <IoMusicalNotes />
+                                        Chord Converter
                                     </MenuLink>
                                 </MenuItem>
                             </MenuContent>
