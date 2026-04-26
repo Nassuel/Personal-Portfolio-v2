@@ -4,6 +4,7 @@ import Section from "../components/section";
 import { WorkGridItem } from "@/components/grid-item";
 
 import contosoCrafts from "../public/images/personal_projects/contoso-crafts-landing.png";
+import hunterPie from "../public/images/personal_projects/hunterpie-banner.png";
 import kingdomTools from "../public/images/freelancing/kingdom-tools.png";
 
 const PersonalProjects = () => (
@@ -23,6 +24,18 @@ const PersonalProjects = () => (
                         As part of my graduate class, I built a Blazor
                         application using C# and Azure Cloud for hosting. This
                         was built along with a teammate.
+                    </WorkGridItem>
+                </Section>
+                <Section>
+                    <WorkGridItem
+                        title="HunterPie v2.0"
+                        thumbnail={hunterPie}
+                        link="github.com/Nassuel/HunterPie"
+                    >
+                        Open-source contributions to HunterPie, a real-time
+                        game overlay for Monster Hunter. Work includes feature
+                        development and bug fixes as part of my graduate
+                        academic coursework.
                     </WorkGridItem>
                 </Section>
             </SimpleGrid>
