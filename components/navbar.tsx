@@ -9,45 +9,88 @@ import {
     IconButton,
     Link,
     Stack,
+    Text,
     type BoxProps,
     type LinkProps
 } from "@chakra-ui/react";
 import { MenuContent, MenuItem, MenuRoot, MenuTrigger } from "@chakra-ui/react";
-import { IoCodeWorking, IoHomeSharp, IoMenu, IoPerson, IoMusicalNotes } from "react-icons/io5";
+import {
+    IoCodeWorking,
+    IoHomeSharp,
+    IoMenu,
+    IoPerson,
+    IoMusicalNotes
+} from "react-icons/io5";
 import { useTheme } from "next-themes";
 import Logo from "./logo";
 import ThemeToggleButton from "./theme-toggle-button";
 
+const NAV_ITEMS: { href: string; label: string; numeral: string }[] = [
+    { href: "/about", label: "About", numeral: "I" },
+    { href: "/freelancing", label: "Freelance", numeral: "II" },
+    { href: "/personal-projects", label: "Personal", numeral: "III" },
+    { href: "/tools", label: "Tools", numeral: "IV" }
+];
+
 interface LinkItemProps extends Omit<LinkProps, "href" | "children"> {
     href: string;
     path: string;
+    numeral: string;
     children: ReactNode;
 }
 
-const LinkItem = ({ href, path, target, children, ...props }: LinkItemProps) => {
-    const { resolvedTheme } = useTheme();
-    const [mounted, setMounted] = useState(false);
-
-    useEffect(() => {
-        setMounted(true);
-    }, []);
-
+const LinkItem = ({
+    href,
+    path,
+    numeral,
+    target,
+    children,
+    ...props
+}: LinkItemProps) => {
     const active = path === href;
-    const isDark = mounted && resolvedTheme === "dark";
-    const inactiveColor = isDark ? "whiteAlpha.900" : "gray.800";
-    const bgThemeColor = isDark ? "grassTealDark" : "grassTeal";
 
     return (
         <Link
             asChild
-            p={2}
-            bg={active ? bgThemeColor : undefined}
-            rounded="10"
-            color={active ? "#202023" : inactiveColor}
+            position="relative"
+            px={3}
+            py={1.5}
+            fontFamily="mono"
+            fontSize="0.78rem"
+            letterSpacing="0.14em"
+            textTransform="uppercase"
+            color={active ? "accent.glow" : "body.fg"}
             target={target}
+            transition="color 180ms ease"
+            css={{ textDecoration: "none" }}
+            _hover={{
+                color: "accent.glow",
+                textDecoration: "none"
+            }}
             {...props}
         >
-            <NextLink href={href} scroll={false}>{children}</NextLink>
+            <NextLink href={href} scroll={false}>
+                <Text
+                    as="span"
+                    fontSize="0.6rem"
+                    mr={1.5}
+                    opacity={0.55}
+                    letterSpacing="0.1em"
+                >
+                    §{numeral}
+                </Text>
+                {children}
+                {active && (
+                    <Box
+                        position="absolute"
+                        left={3}
+                        right={3}
+                        bottom="-2px"
+                        height="1px"
+                        bg="accent.glow"
+                    />
+                )}
+            </NextLink>
         </Link>
     );
 };
@@ -79,7 +122,7 @@ const Navbar = ({ path, ...props }: NavbarProps) => {
     }, []);
 
     const isDark = mounted && resolvedTheme === "dark";
-    const navBg = isDark ? "#20202380" : "#ffffff40";
+    const navBg = isDark ? "rgba(40, 22, 8, 0.72)" : "rgba(255, 241, 216, 0.72)";
     const menuBg = isDark ? "#8b4513" : "#ffe4c4";
 
     return (
@@ -88,8 +131,15 @@ const Navbar = ({ path, ...props }: NavbarProps) => {
             as="nav"
             w="100%"
             bg={navBg}
-            css={{ backdropFilter: "blur(10px)" }}
-            zIndex={2}
+            css={{
+                backdropFilter: "blur(14px) saturate(140%)",
+                WebkitBackdropFilter: "blur(14px) saturate(140%)",
+                borderBottom: "1px solid",
+                borderBottomColor: isDark
+                    ? "rgba(255, 233, 201, 0.18)"
+                    : "rgba(42, 26, 10, 0.18)"
+            }}
+            zIndex={10}
             {...props}
         >
             <Container
@@ -101,7 +151,7 @@ const Navbar = ({ path, ...props }: NavbarProps) => {
                 justifyContent="space-between"
             >
                 <Flex align="center" mr={5}>
-                    <Heading as="h1" size="lg" letterSpacing={"tighter"}>
+                    <Heading as="h1" size="lg" letterSpacing="tighter">
                         <Logo />
                     </Heading>
                 </Flex>
@@ -111,20 +161,19 @@ const Navbar = ({ path, ...props }: NavbarProps) => {
                     width={{ base: "full", md: "auto" }}
                     alignItems="center"
                     flexGrow={1}
+                    gap={1}
                     mt={{ base: 4, md: 0 }}
                 >
-                    <LinkItem href="/about" path={path}>
-                        About
-                    </LinkItem>
-                    <LinkItem href="/freelancing" path={path}>
-                        Freelancing
-                    </LinkItem>
-                    <LinkItem href="/personal-projects" path={path}>
-                        Personal Projects
-                    </LinkItem>
-                    <LinkItem href="/tools" path={path}>
-                        Tools
-                    </LinkItem>
+                    {NAV_ITEMS.map((item) => (
+                        <LinkItem
+                            key={item.href}
+                            href={item.href}
+                            path={path}
+                            numeral={item.numeral}
+                        >
+                            {item.label}
+                        </LinkItem>
+                    ))}
                 </Stack>
                 <Box flex={1} textAlign="right">
                     <ThemeToggleButton />
