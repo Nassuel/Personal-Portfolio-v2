@@ -11,10 +11,14 @@ interface SectionProps {
 
 const Section = ({ children, delay = 0 }: SectionProps) => (
     <MotionBox
-        initial={{ y: 10, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, delay }}
-        mb={6}
+        initial={{ y: 18, opacity: 0, filter: "blur(6px)" }}
+        animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
+        transition={{
+            duration: 0.9,
+            delay,
+            ease: [0.16, 1, 0.3, 1]
+        }}
+        mb={10}
     >
         {children}
     </MotionBox>
