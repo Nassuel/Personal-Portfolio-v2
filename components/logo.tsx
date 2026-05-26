@@ -1,22 +1,24 @@
 import Link from "next/link";
-import { Text, chakra } from "@chakra-ui/react";
+import { HStack, Text, Box, chakra } from "@chakra-ui/react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
 const LogoBox = chakra("span", {
     base: {
-        fontWeight: "normal",
-        fontSize: "40px",
         display: "inline-flex",
         alignItems: "center",
-        height: "30px",
-        lineHeight: "20px",
-        padding: "10px",
-        "& > svg": {
-            transition: "200ms ease"
+        gap: "0.55rem",
+        padding: "6px 10px",
+        position: "relative",
+        transition: "transform 220ms ease",
+        "&:hover": {
+            transform: "translateY(-1px)"
         },
-        "&:hover > svg": {
-            transform: "rotate(20deg)"
+        "&:hover .nvc-mono": {
+            color: "accent.glow"
+        },
+        "&:hover .nvc-script": {
+            transform: "rotate(-2deg)"
         }
     }
 });
@@ -29,8 +31,7 @@ const Logo = () => {
         setMounted(true);
     }, []);
 
-    // Avoid hydration mismatch
-    const textColor = !mounted
+    const scriptColor = !mounted
         ? "gray.800"
         : resolvedTheme === "dark"
           ? "whiteAlpha.900"
@@ -39,13 +40,40 @@ const Logo = () => {
     return (
         <Link href="/" scroll={false}>
             <LogoBox>
-                <Text
-                    color={textColor}
-                    fontFamily="Babylonica"
-                    fontWeight="normal"
-                >
-                    Nassuel Valera Cuevas
-                </Text>
+                <HStack gap={2.5} alignItems="center">
+                    <Box
+                        className="nvc-mono"
+                        fontFamily="mono"
+                        fontWeight="600"
+                        fontSize="0.92rem"
+                        letterSpacing="0.16em"
+                        color="body.fg"
+                        transition="color 200ms ease"
+                        css={{
+                            border: "1px solid currentColor",
+                            padding: "1px 6px",
+                            borderRadius: "2px"
+                        }}
+                    >
+                        N·V·C
+                    </Box>
+                    <Box
+                        className="nvc-script"
+                        transition="transform 260ms ease"
+                        transformOrigin="left center"
+                    >
+                        <Text
+                            color={scriptColor}
+                            fontFamily="Babylonica"
+                            fontWeight="normal"
+                            fontSize="1.85rem"
+                            lineHeight="1"
+                            display={{ base: "none", sm: "block" }}
+                        >
+                            Nassuel
+                        </Text>
+                    </Box>
+                </HStack>
             </LogoBox>
         </Link>
     );
