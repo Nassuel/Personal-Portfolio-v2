@@ -7,7 +7,7 @@ import contosoCrafts from "../public/images/personal_projects/contoso-crafts-lan
 import hunterPie from "../public/images/personal_projects/hunterpie-banner.png";
 import kingdomTools from "../public/images/freelancing/kingdom-tools.png";
 import darkroomUtility from "../public/images/personal_projects/darkroom-utility.png";
-import globalAddressLookup from "../public/images/personal_projects/global-address-lookup.png";
+import globalAddressLookup from "../public/images/personal_projects/global-address-registry.png";
 
 const PersonalProjects = () => (
     <Layout title="Freelancing">
