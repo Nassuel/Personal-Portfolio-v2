@@ -54,7 +54,7 @@ const Footer = () => {
                     >
                         Takuya Matsuyama
                     </Link>
-                    , remixed in Everett, WA.
+                    , remixed in Lynnwood, WA.
                 </Text>
             </Box>
         </Box>

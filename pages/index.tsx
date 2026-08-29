@@ -115,7 +115,7 @@ const Home = () => (
                         <Text textStyle="marginalia">·</Text>
                         <Text textStyle="marginalia">Edition MMXXVI</Text>
                         <Text textStyle="marginalia">·</Text>
-                        <Text textStyle="marginalia">Everett, WA</Text>
+                        <Text textStyle="marginalia">Lynnwood, WA</Text>
                         <Text textStyle="marginalia">·</Text>
                         <Text textStyle="marginalia">47.97°N · 122.20°W</Text>
                     </HStack>
