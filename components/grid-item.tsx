@@ -7,7 +7,7 @@ import type { IconType } from "react-icons";
 interface WorkGridItemProps {
     children: ReactNode;
     title: string;
-    thumbnail: StaticImageData;
+    thumbnail?: StaticImageData;
     link?: string;
 }
 
@@ -62,12 +62,14 @@ export const WorkGridItem = ({
                     target="_blank"
                     scroll={false}
                 >
-                    <Image
-                        src={thumbnail}
-                        alt={title}
-                        placeholder="blur"
-                        style={{ borderRadius: "10px", margin: "0 auto" }}
-                    />
+                    {thumbnail && (
+                        <Image
+                            src={thumbnail}
+                            alt={title}
+                            placeholder="blur"
+                            style={{ borderRadius: "10px", margin: "0 auto" }}
+                        />
+                    )}
                     <LinkOverlay asChild>
                         <Text mt={2} fontSize={20}>
                             {title}
@@ -78,12 +80,14 @@ export const WorkGridItem = ({
             </LinkBox>
         ) : (
             <Box>
-                <Image
-                    src={thumbnail}
-                    alt={title}
-                    placeholder="blur"
-                    style={{ borderRadius: "10px", margin: "0 auto" }}
-                />
+                {thumbnail && (
+                    <Image
+                        src={thumbnail}
+                        alt={title}
+                        placeholder="blur"
+                        style={{ borderRadius: "10px", margin: "0 auto" }}
+                    />
+                )}
                 <Text mt={2} fontSize={20}>
                     {title}
                 </Text>
