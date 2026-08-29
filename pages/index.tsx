@@ -269,7 +269,21 @@ const Home = () => (
                     Bio
                 </Heading>
                 <BioSection>
-                    <BioYear>2026—</BioYear>
+                    <BioYear>2026—Present</BioYear>
+                    <Box>
+                        Technology Asset Systems Manager at{" "}
+                        <ChakraLink asChild color="link.color">
+                            <NextLink
+                                href="https://www.smartsheet.com"
+                                target="_blank"
+                            >
+                                Smartsheet
+                            </NextLink>
+                        </ChakraLink>
+                    </Box>
+                </BioSection>
+                <BioSection>
+                    <BioYear>2026</BioYear>
                     <Box>
                         Sr. Technology Asset Specialist · Asset Engineer at{" "}
                         <ChakraLink asChild color="link.color">
