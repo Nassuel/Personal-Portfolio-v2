@@ -6,6 +6,8 @@ import { WorkGridItem } from "@/components/grid-item";
 import contosoCrafts from "../public/images/personal_projects/contoso-crafts-landing.png";
 import hunterPie from "../public/images/personal_projects/hunterpie-banner.png";
 import kingdomTools from "../public/images/freelancing/kingdom-tools.png";
+import darkroomUtility from "../public/images/personal_projects/darkroom-utility.png";
+import globalAddressLookup from "../public/images/personal_projects/global-address-lookup.png";
 
 const PersonalProjects = () => (
     <Layout title="Freelancing">
@@ -36,6 +38,30 @@ const PersonalProjects = () => (
                         game overlay for Monster Hunter. Work includes feature
                         development and bug fixes as part of my graduate
                         academic coursework.
+                    </WorkGridItem>
+                </Section>
+                <Section>
+                    <WorkGridItem
+                        title="Darkroom Utility"
+                        thumbnail={darkroomUtility}
+                        link="5200-26sq-image-processor.vercel.app"
+                    >
+                        A cloud-hostable image transformation service that accepts images
+                        and ordered transformation operations (flip, rotate, grayscale).
+                        Demonstrates serverless architecture patterns with direct browser uploads
+                        to managed object storage, bypassing serverless function size limits.
+                    </WorkGridItem>
+                </Section>
+                <Section>
+                    <WorkGridItem
+                        title="Global Address Registry Address Lookup"
+                        thumbnail={globalAddressLookup}
+                        link="5200-global-address-api.vercel.app"
+                    >
+                        A fullstack Next.js application that accepts partial address input
+                        for multiple countries and returns ranked suggestions for validated,
+                        fully constructed addresses. Built as a prototype for CPSC-5200
+                        Software Architecture &amp; Design.
                     </WorkGridItem>
                 </Section>
             </SimpleGrid>
