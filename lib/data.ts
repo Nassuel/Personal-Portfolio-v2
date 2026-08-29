@@ -62,7 +62,7 @@ export const experiencesData: readonly Experience[] = [
             height: 30,
             width: 30
         },
-        date: "February 2026 - Present",
+        date: "August 2026 - Present",
         link: "www.smartsheet.com"
     },
     {
@@ -86,7 +86,7 @@ export const experiencesData: readonly Experience[] = [
             height: 30,
             width: 30
         },
-        date: "February 2026 - Present",
+        date: "February 2026 - August 2026",
         link: "www.smartsheet.com"
     },
     {
