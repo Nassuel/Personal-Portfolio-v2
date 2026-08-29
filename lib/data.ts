@@ -51,7 +51,22 @@ export interface Socials {
 
 export const experiencesData: readonly Experience[] = [
     {
-        title: "Sr. Technology Asset Specialist | Asset Engineer",
+        title: "Technology Asset Systems Manager",
+        company: "Smartsheet",
+        location: "Bellevue, WA - Hybrid",
+        description: ``,
+        icon: {
+            url: "/icons/smartsheet-logo-blue-new.svg.svg",
+            padding: ".88rem 0rem 0rem .98rem",
+            mobilePadding: ".2rem 0rem 0rem .275rem",
+            height: 30,
+            width: 30
+        },
+        date: "February 2026 - Present",
+        link: "www.smartsheet.com"
+    },
+    {
+        title: "Sr. Technology Asset Specialist",
         company: "Smartsheet",
         location: "Bellevue, WA - Hybrid",
         description: `Lead global technology asset management operations across multiple regions, overseeing
