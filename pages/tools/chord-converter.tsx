@@ -25,7 +25,7 @@ const COPY_TONE: Record<CopyState, string> = {
 const FORMAT_EXAMPLES = [
     {
         caption: "Input — chord line above lyric line",
-        sample: "G       Em      C           D\nAmazing grace how sweet the sound"
+        sample: "G       Em        C         D\nAmazing grace how sweet the sound"
     },
     {
         caption: "Output — Planning Center format",
