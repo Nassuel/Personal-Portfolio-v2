@@ -142,7 +142,7 @@ describe("MainLayout", () => {
         );
         expect(document.title).toBe("NNVC - Home");
         expect(
-            document.head.querySelector('meta[name="og:title"]')
+            document.head.querySelector('meta[property="og:title"]')
         ).toHaveAttribute("content", "NNVC");
         expect(screen.getByRole("navigation")).toBeInTheDocument();
         expect(screen.getByRole("link", { name: /About/ })).toHaveAttribute(
