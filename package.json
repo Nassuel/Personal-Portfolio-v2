@@ -17,8 +17,6 @@
     "license": "MIT",
     "dependencies": {
         "@base-ui/react": "^1.9.0",
-        "@chakra-ui/react": "^3.30.0",
-        "@emotion/react": "^11.14.0",
         "@vercel/analytics": "^1.6.1",
         "class-variance-authority": "^0.7.1",
         "cn": "^0.5.2",
