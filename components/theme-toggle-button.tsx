@@ -1,18 +1,20 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import { IoMoon, IoSunny } from "react-icons/io5";
 import { Button } from "@/components/ui/button";
 
+const subscribeToNothing = () => () => {};
+
 const ThemeToggleButton = () => {
     const { setTheme, resolvedTheme } = useTheme();
-    const [mounted, setMounted] = useState(false);
+    const hydrated = useSyncExternalStore(
+        subscribeToNothing,
+        () => true,
+        () => false
+    );
 
-    useEffect(() => {
-        setMounted(true);
-    }, []);
-
-    if (!mounted) {
+    if (!hydrated) {
         return (
             <Button
                 aria-label="Toggle theme"
