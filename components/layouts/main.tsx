@@ -21,13 +21,13 @@ const Main = ({ children, router }: MainProps) => (
             <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
             <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
             <meta property="og:site_name" content="Nassuel Valera Cuevas" />
-            <meta name="og:title" content="NVC" />
+            <meta name="og:title" content="NNVC" />
             <meta property="og:type" content="website" />
             <meta
                 property="og:image"
                 content="https://www.nassuel.com/card.jpg"
             />
-            <title>NVC - Home</title>
+            <title>NNVC - Home</title>
         </Head>
 
         <NavBar path={router.asPath} />
