@@ -5,16 +5,16 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Commands
 
 ```bash
-yarn dev             # Start dev server on 0.0.0.0:3000
-yarn build           # Production build
-yarn start           # Start production server
-yarn test            # Run the Vitest suite once
-yarn coverage        # Run the suite with V8 coverage; fails below 100%
-yarn prettier        # Format all files with Prettier
-yarn optimize-model  # Rebuild a web-ready .glb from a Sketchfab export (see below)
+npm run dev             # Start dev server on 0.0.0.0:3000
+npm run build           # Production build
+npm start               # Start production server
+npm test                # Run the Vitest suite once
+npm run coverage        # Run the suite with V8 coverage; fails below 100%
+npm run prettier        # Format all files with Prettier
+npm run optimize-model  # Rebuild a web-ready .glb from a Sketchfab export (see below)
 ```
 
-Node.js 24.x is required. `yarn lint` still calls `next lint`, which Next 16 removed, so it does not run.
+Use npm; `package-lock.json` is the lockfile. Node.js 24.x is required. `npm run lint` still calls `next lint`, which Next 16 removed, so it does not run.
 
 ## Architecture
 
@@ -67,7 +67,7 @@ The home page shows the Koenigsegg One:1 (`public/koenigsegg-one.glb`) in `compo
 The `.glb` is built from the original Sketchfab export, which is too large to serve:
 
 ```bash
-yarn optimize-model original.glb public/koenigsegg-one.glb --ratio 0.12 \
+npm run optimize-model -- original.glb public/koenigsegg-one.glb --ratio 0.12 \
   --drop-material studio_materal --paint "base_paint=#007BA7"
 ```
 
@@ -75,7 +75,7 @@ After changing the model, regenerate `public/images/home/koenigsegg-poster.png` 
 
 ### Testing
 
-Vitest + jsdom + Testing Library. Tests live in `tests/`, mirroring the source tree. `yarn coverage` enforces 100% statements, branches, functions and lines over `components/`, `lib/` and `pages/`.
+Vitest + jsdom + Testing Library. Tests live in `tests/`, mirroring the source tree. `npm run coverage` enforces 100% statements, branches, functions and lines over `components/`, `lib/` and `pages/`.
 - Write tests from the spec in each function's doc comment, not from the implementation.
 - `tests/setup.ts` mocks `next/font/google` and `next/head`, and stubs `matchMedia`, `ResizeObserver` and `IntersectionObserver`.
 - `vitest.config.mts` turns image imports into `StaticImageData` so `next/image` works.
