@@ -10,11 +10,12 @@ npm run build           # Production build
 npm start               # Start production server
 npm test                # Run the Vitest suite once
 npm run coverage        # Run the suite with V8 coverage; fails below 100%
+npm run lint            # Lint with ESLint (flat config in eslint.config.mjs)
 npm run prettier        # Format all files with Prettier
 npm run optimize-model  # Rebuild a web-ready .glb from a Sketchfab export (see below)
 ```
 
-Use npm; `package-lock.json` is the lockfile. Node.js 24.x is required. `npm run lint` still calls `next lint`, which Next 16 removed, so it does not run.
+Use npm; `package-lock.json` is the lockfile. Node.js 24.x is required. ESLint stays on 9.x until `eslint-config-next`'s React, import and jsx-a11y plugins support ESLint 10.
 
 ## Architecture
 
