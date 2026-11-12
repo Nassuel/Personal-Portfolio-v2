@@ -1,177 +1,182 @@
+import PageHeader from "@/components/editorial/page-header";
+import Layout from "@/components/layouts/article";
+import Section from "@/components/section";
+import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
+import { Textarea } from "@/components/ui/textarea";
 import {
-  Container,
-  Heading,
-  Box,
-  Button,
-  Text,
-  HStack,
-  Textarea,
-  SimpleGrid,
-  Separator,
-} from '@chakra-ui/react'
-import Layout from '../../components/layouts/article'
-import Section from '../../components/section'
-import { useChordConverter, CopyState } from "@/components/useChordConverter"
+    useChordConverter,
+    type CopyState
+} from "@/components/useChordConverter";
+import { cn } from "@/lib/utils";
 
 const COPY_LABEL: Record<CopyState, string> = {
-  idle: 'Copy',
-  copied: 'Copied ✓',
-  error: 'Failed ✗',
-}
+    idle: "Copy",
+    copied: "Copied ✓",
+    error: "Failed ✗"
+};
+
+const COPY_TONE: Record<CopyState, string> = {
+    idle: "",
+    copied: "border-glow text-glow disabled:opacity-100",
+    error: "border-destructive text-destructive disabled:opacity-100"
+};
+
+const FORMAT_EXAMPLES = [
+    {
+        caption: "Input — chord line above lyric line",
+        sample: "G       Em      C           D\nAmazing grace how sweet the sound"
+    },
+    {
+        caption: "Output — Planning Center format",
+        sample: "[G]Amazing [Em]grace how [C]sweet the [D]sound"
+    }
+];
+
+const panelLabelClassName =
+    "font-mono text-[0.7rem] font-semibold tracking-[0.14em] text-muted-foreground uppercase";
+const hintClassName = "mt-1 text-xs text-muted-foreground";
 
 const ChordConverter = () => {
-  const {
-    input,
-    output,
-    copyState,
-    setInput,
-    handleCopy,
-    handleClear,
-    handleLoadSample,
-  } = useChordConverter()
+    const {
+        input,
+        output,
+        copyState,
+        setInput,
+        handleCopy,
+        handleClear,
+        handleLoadSample
+    } = useChordConverter();
 
-  return (
-    <Layout title="Chord Converter">
-      <Container maxW="container.lg" py={10}>
-        <Heading as="h3" textStyle="section-title" fontSize={20} mb={2}>
-          Chord Converter
-        </Heading>
-        <Text fontSize="sm" color="text.muted" mb={6}>
-          Paste chord+lyric notation — output is formatted for Planning Center&apos;s chord parser.
-        </Text>
+    return (
+        <Layout title="Chord Converter">
+            <div className="py-10">
+                <PageHeader
+                    numeral="IV"
+                    label="Tools"
+                    title="Chord Converter"
+                />
+                <p className="-mt-4 mb-6 text-sm text-muted-foreground">
+                    Paste chord+lyric notation — output is formatted for
+                    Planning Center&apos;s chord parser.
+                </p>
 
-        <Separator mb={6} borderColor="divider.border" />
+                <Separator className="mb-6 bg-rule/25" />
 
-        {/* Format guide */}
-        <Section delay={0.1}>
-          <Box
-            mb={6}
-            p={4}
-            borderWidth="1px"
-            borderRadius="md"
-            borderColor="divider.border"
-            fontSize="sm"
-          >
-            <Heading as="h4" fontSize={14} mb={3} letterSpacing="wider" textTransform="uppercase">
-              Format Guide
-            </Heading>
-            <SimpleGrid columns={[1, 2]} gap={4}>
-              <Box>
-                <Text fontWeight="semibold" mb={1}>Input — chord line above lyric line</Text>
-                <Box
-                  as="pre"
-                  fontFamily="mono"
-                  fontSize="xs"
-                  p={2}
-                  borderRadius="sm"
-                  bg="blackAlpha.100"
-                  whiteSpace="pre"
-                  overflowX="auto"
-                >
-{`G       Em      C           D\nAmazing grace how sweet the sound`}
-                </Box>
-              </Box>
-              <Box>
-                <Text fontWeight="semibold" mb={1}>Output — Planning Center format</Text>
-                <Box
-                  as="pre"
-                  fontFamily="mono"
-                  fontSize="xs"
-                  p={2}
-                  borderRadius="sm"
-                  bg="blackAlpha.100"
-                  whiteSpace="pre"
-                  overflowX="auto"
-                >
-{`[G]Amazing [Em]grace how [C]sweet the [D]sound`}
-                </Box>
-              </Box>
-            </SimpleGrid>
-          </Box>
-        </Section>
+                <Section delay={0.1}>
+                    <section
+                        aria-labelledby="format-guide"
+                        className="rounded-[2px] border border-rule/25 bg-card/60 p-4 text-sm"
+                    >
+                        <h2
+                            id="format-guide"
+                            className={cn(panelLabelClassName, "mb-3")}
+                        >
+                            Format Guide
+                        </h2>
+                        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                            {FORMAT_EXAMPLES.map(({ caption, sample }) => (
+                                <figure key={caption}>
+                                    <figcaption className="mb-1 font-semibold">
+                                        {caption}
+                                    </figcaption>
+                                    <pre className="overflow-x-auto rounded-[2px] bg-muted p-2 font-mono text-xs whitespace-pre">
+                                        {sample}
+                                    </pre>
+                                </figure>
+                            ))}
+                        </div>
+                    </section>
+                </Section>
 
-        {/* Editor panels */}
-        <Section delay={0.2}>
-          <SimpleGrid columns={[1, 1, 2]} gap={4}>
+                <Section delay={0.2}>
+                    <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                        <div>
+                            <div className="mb-2 flex items-center justify-between">
+                                <label
+                                    htmlFor="chord-input"
+                                    className={panelLabelClassName}
+                                >
+                                    Input
+                                </label>
+                                <div className="flex gap-2">
+                                    <Button
+                                        size="xs"
+                                        variant="ghost"
+                                        onClick={handleLoadSample}
+                                    >
+                                        Sample
+                                    </Button>
+                                    <Button
+                                        size="xs"
+                                        variant="ghost"
+                                        onClick={handleClear}
+                                    >
+                                        Clear
+                                    </Button>
+                                </div>
+                            </div>
+                            <Textarea
+                                id="chord-input"
+                                value={input}
+                                onChange={event => setInput(event.target.value)}
+                                placeholder={
+                                    "Paste chord chart here:\n\nG       Em      C      D\nAmazing grace how sweet the sound"
+                                }
+                                rows={20}
+                                spellCheck={false}
+                                autoCorrect="off"
+                                autoCapitalize="off"
+                                className="resize-y rounded-[2px] border-rule/30 bg-card/50 font-mono text-sm field-sizing-fixed md:text-sm"
+                            />
+                            <p className={hintClassName}>
+                                Chord line above · Lyric line below · Blank
+                                lines preserved
+                            </p>
+                        </div>
 
-            {/* Input */}
-            <Box>
-              <HStack justify="space-between" mb={2}>
-                <Text fontSize="xs" fontWeight="semibold" letterSpacing="wider" textTransform="uppercase" color="text.muted">
-                  Input
-                </Text>
-                <HStack gap={2}>
-                  <Button size="xs" variant="ghost" onClick={handleLoadSample}>Sample</Button>
-                  <Button size="xs" variant="ghost" onClick={handleClear}>Clear</Button>
-                </HStack>
-              </HStack>
-              <Textarea
-                value={input}
-                onChange={e => setInput(e.target.value)}
-                placeholder={`Paste chord chart here:\n\nG       Em      C      D\nAmazing grace how sweet the sound`}
-                fontFamily="mono"
-                fontSize="sm"
-                rows={20}
-                resize="vertical"
-                spellCheck={false}
-                autoCorrect="off"
-                autoCapitalize="off"
-                borderColor="divider.border"
-              />
-              <Text fontSize="xs" color="text.muted" mt={1}>
-                Chord line above · Lyric line below · Blank lines preserved
-              </Text>
-            </Box>
+                        <div>
+                            <div className="mb-2 flex items-center justify-between">
+                                <h2
+                                    id="chord-output"
+                                    className={panelLabelClassName}
+                                >
+                                    Output — Planning Center
+                                </h2>
+                                <Button
+                                    size="xs"
+                                    variant="outline"
+                                    onClick={handleCopy}
+                                    disabled={!output || copyState !== "idle"}
+                                    className={cn(
+                                        "min-w-16",
+                                        COPY_TONE[copyState]
+                                    )}
+                                >
+                                    {COPY_LABEL[copyState]}
+                                </Button>
+                            </div>
+                            <div
+                                role="region"
+                                aria-labelledby="chord-output"
+                                className="min-h-[460px] overflow-y-auto rounded-[2px] border border-rule/30 bg-card/50 p-3 font-mono text-sm leading-loose break-words whitespace-pre-wrap"
+                            >
+                                {output || (
+                                    <span className="text-subtle italic">
+                                        Output will appear here as you type…
+                                    </span>
+                                )}
+                            </div>
+                            <p className={hintClassName}>
+                                Paste directly into Planning Center&apos;s chord
+                                parser
+                            </p>
+                        </div>
+                    </div>
+                </Section>
+            </div>
+        </Layout>
+    );
+};
 
-            {/* Output */}
-            <Box>
-              <HStack justify="space-between" mb={2}>
-                <Text fontSize="xs" fontWeight="semibold" letterSpacing="wider" textTransform="uppercase" color="text.muted">
-                  Output — Planning Center
-                </Text>
-                <Button
-                  size="xs"
-                  variant="outline"
-                  colorPalette={
-                    copyState === 'copied' ? 'green' :
-                    copyState === 'error'  ? 'red'   : 'gray'
-                  }
-                  onClick={handleCopy}
-                  disabled={!output || copyState !== 'idle'}
-                  minW="64px"
-                >
-                  {COPY_LABEL[copyState]}
-                </Button>
-              </HStack>
-              <Box
-                fontFamily="mono"
-                fontSize="sm"
-                p={3}
-                borderWidth="1px"
-                borderRadius="md"
-                borderColor="divider.border"
-                minH="460px"
-                whiteSpace="pre-wrap"
-                wordBreak="break-word"
-                lineHeight="tall"
-                overflowY="auto"
-              >
-                {output ? output : (
-                  <Text color="text.subtle" fontStyle="italic">
-                    Output will appear here as you type…
-                  </Text>
-                )}
-              </Box>
-              <Text fontSize="xs" color="text.muted" mt={1}>
-                Paste directly into Planning Center&apos;s chord parser
-              </Text>
-            </Box>
-
-          </SimpleGrid>
-        </Section>
-      </Container>
-    </Layout>
-  )
-}
-
-export default ChordConverter
+export default ChordConverter;
