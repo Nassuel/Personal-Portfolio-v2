@@ -14,7 +14,7 @@ interface LayoutProps {
 }
 
 const Layout = ({ children, title }: LayoutProps) => {
-    const t = `${title} - NVC`;
+    const t = `${title} - NNVC`;
     return (
         <motion.article
             initial="hidden"
