@@ -1,19 +1,18 @@
-import { chakra, type HTMLChakraProps } from "@chakra-ui/react";
+import type { ComponentProps } from "react";
+import { cn } from "@/lib/utils";
 
-const Paragraph = (props: HTMLChakraProps<"p">) => (
-    <chakra.p
-        textAlign="justify"
-        textIndent="1em"
-        css={{ hyphens: "auto" }}
+type ParagraphProps = ComponentProps<"p">;
+
+const Paragraph = ({ className, ...props }: ParagraphProps) => (
+    <p
+        className={cn("indent-[1em] text-justify hyphens-auto", className)}
         {...props}
     />
 );
 
-const ParagraphClean = (props: HTMLChakraProps<"p">) => (
-    <chakra.p
-        textAlign="justify"
-        textIndent="0.05em"
-        css={{ hyphens: "auto" }}
+const ParagraphClean = ({ className, ...props }: ParagraphProps) => (
+    <p
+        className={cn("indent-[0.05em] text-justify hyphens-auto", className)}
         {...props}
     />
 );
