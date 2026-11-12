@@ -7,7 +7,7 @@
         "build": "next build",
         "start": "next start",
         "prettier": "prettier --write .",
-        "lint": "next lint",
+        "lint": "eslint .",
         "test": "vitest run",
         "coverage": "vitest run --coverage",
         "optimize-model": "node scripts/optimize-model.mjs"
