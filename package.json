@@ -7,7 +7,10 @@
         "build": "next build",
         "start": "next start",
         "prettier": "prettier --write .",
-        "lint": "next lint"
+        "lint": "next lint",
+        "test": "vitest run",
+        "coverage": "vitest run --coverage",
+        "optimize-model": "node scripts/optimize-model.mjs"
     },
     "keywords": [],
     "author": "Nassuel Valera Cuevas",
