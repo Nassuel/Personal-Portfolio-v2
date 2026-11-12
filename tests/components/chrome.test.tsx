@@ -122,10 +122,10 @@ describe("ArticleLayout", () => {
     it("titles the page when given a title", () => {
         render(<ArticleLayout title="About">body</ArticleLayout>);
         // React 19 hoists <title> and <meta> into document.head.
-        expect(document.title).toBe("About - NVC");
+        expect(document.title).toBe("About - NNVC");
         expect(
             document.head.querySelector('meta[property="og:title"]')
-        ).toHaveAttribute("content", "About - NVC");
+        ).toHaveAttribute("content", "About - NNVC");
         expect(screen.getByRole("article")).toHaveTextContent("body");
     });
 
@@ -140,7 +140,10 @@ describe("MainLayout", () => {
         render(
             <MainLayout router={{ asPath: "/about" }}>page body</MainLayout>
         );
-        expect(document.title).toBe("NVC - Home");
+        expect(document.title).toBe("NNVC - Home");
+        expect(
+            document.head.querySelector('meta[name="og:title"]')
+        ).toHaveAttribute("content", "NNVC");
         expect(screen.getByRole("navigation")).toBeInTheDocument();
         expect(screen.getByRole("link", { name: /About/ })).toHaveAttribute(
             "aria-current",
