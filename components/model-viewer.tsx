@@ -35,6 +35,7 @@ const ModelViewer = ({
         try {
             renderer = adapters.createRenderer();
         } catch {
+            // eslint-disable-next-line react-hooks/set-state-in-effect -- WebGL is the external system here, and its constructor reports failure synchronously.
             setStatus("unavailable");
             return;
         }
