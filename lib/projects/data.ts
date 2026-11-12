@@ -27,7 +27,8 @@ export const projects: readonly Project[] = [
         category: "academic",
         thumbnail: hunterPie,
         thumbnailFit: "contain",
-        stack: ["C#", ".NET"]
+        stack: ["C#", ".NET"],
+        url: "https://www.hunterpie.com"
     },
     {
         slug: "darkroom-utility",
