@@ -1,0 +1,208 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+    --font-sans: var(--font-newsreader), var(--font-fraunces), Georgia, serif;
+    --font-heading:
+        var(--font-fraunces), var(--font-newsreader), Georgia, serif;
+    --font-mono:
+        var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, monospace;
+    --font-script: var(--font-babylonica), cursive;
+    --color-ring: var(--ring);
+    --color-input: var(--input);
+    --color-border: var(--border);
+    --color-destructive: var(--destructive);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-accent: var(--accent);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-muted: var(--muted);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-secondary: var(--secondary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-primary: var(--primary);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-popover: var(--popover);
+    --color-card-foreground: var(--card-foreground);
+    --color-card: var(--card);
+    --color-foreground: var(--foreground);
+    --color-background: var(--background);
+    --color-subtle: var(--subtle);
+    --color-glow: var(--glow);
+    --color-link: var(--link);
+    --color-rule: var(--rule);
+    --color-stamp: var(--stamp);
+    --color-stamp-foreground: var(--stamp-foreground);
+    --radius-sm: calc(var(--radius) * 0.6);
+    --radius-md: calc(var(--radius) * 0.8);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) * 1.4);
+    --radius-2xl: calc(var(--radius) * 1.8);
+    --radius-3xl: calc(var(--radius) * 2.2);
+    --radius-4xl: calc(var(--radius) * 2.6);
+    --animate-reveal: reveal 1100ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    --animate-blink: blink 1.05s steps(2, end) infinite;
+
+    @keyframes reveal {
+        from {
+            clip-path: inset(0 100% 0 0);
+        }
+        to {
+            clip-path: inset(0 0 0 0);
+        }
+    }
+
+    @keyframes blink {
+        0%,
+        49% {
+            opacity: 1;
+        }
+        50%,
+        100% {
+            opacity: 0;
+        }
+    }
+}
+
+/* Light: bisque paper, deep ink, sienna accents. Peru stays as decoration only. */
+:root {
+    color-scheme: light;
+    --background: #ffe4c4;
+    --foreground: #2a1a0a;
+    --card: #fff1d8;
+    --card-foreground: #2a1a0a;
+    --popover: #fff1d8;
+    --popover-foreground: #2a1a0a;
+    --primary: #8f4a1f;
+    --primary-foreground: #fff1d8;
+    --secondary: #f3cfa0;
+    --secondary-foreground: #2a1a0a;
+    --muted: #f7d9b4;
+    --muted-foreground: #705030;
+    --subtle: #7a5638;
+    --accent: #f7d9b4;
+    --accent-foreground: #2a1a0a;
+    --destructive: #b3261e;
+    --border: #d9a878;
+    --input: #d9a878;
+    --ring: #cd853f;
+    --glow: #9a4a1f;
+    --link: #8f4a1f;
+    --rule: #2a1a0a;
+    --stamp: #8f4a1f;
+    --stamp-foreground: #fff1d8;
+    --selection: #cd853f;
+    --selection-foreground: #fff1d8;
+    --scanlines: none;
+    --radius: 0.25rem;
+}
+
+/* Dark: espresso ground, leather cards, saddle-brown badges, phosphor-lime accents. */
+.dark {
+    color-scheme: dark;
+    --background: #1f1209;
+    --foreground: #ffe9c9;
+    --card: #3a1d08;
+    --card-foreground: #ffe9c9;
+    --popover: #3a1d08;
+    --popover-foreground: #ffe9c9;
+    --primary: #32cd32;
+    --primary-foreground: #0a1a0a;
+    --secondary: #8b4513;
+    --secondary-foreground: #ffe9c9;
+    --muted: #2e1a0c;
+    --muted-foreground: #c8a080;
+    --subtle: #a08060;
+    --accent: #3a1d08;
+    --accent-foreground: #ffe9c9;
+    --destructive: #ff8a80;
+    --border: #6e3b17;
+    --input: #6e3b17;
+    --ring: #32cd32;
+    --glow: #32cd32;
+    --link: #32cd32;
+    --rule: #ffe9c9;
+    --stamp: #32cd32;
+    --stamp-foreground: #0a1a0a;
+    --selection: #32cd32;
+    --selection-foreground: #0a1a0a;
+    --scanlines: repeating-linear-gradient(
+        to bottom,
+        rgb(50 205 50 / 0.04) 0px,
+        rgb(50 205 50 / 0.04) 1px,
+        transparent 1px,
+        transparent 3px
+    );
+}
+
+@layer base {
+    * {
+        @apply border-border outline-ring/50;
+    }
+    html {
+        @apply font-sans;
+        font-feature-settings: "liga", "kern", "ss01";
+    }
+    body {
+        @apply relative bg-background text-foreground;
+        /* Paper grain tile plus a soft top-down vignette. */
+        background-image:
+            url("data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22180%22%20height%3D%22180%22%3E%3Cfilter%20id%3D%22n%22%3E%3CfeTurbulence%20type%3D%22fractalNoise%22%20baseFrequency%3D%220.9%22%20numOctaves%3D%222%22%20stitchTiles%3D%22stitch%22%2F%3E%3CfeColorMatrix%20values%3D%220%200%200%200%200%20%200%200%200%200%200%20%200%200%200%200%200%20%200%200%200%200.55%200%22%2F%3E%3C%2Ffilter%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20filter%3D%22url(%23n)%22%20opacity%3D%220.35%22%2F%3E%3C%2Fsvg%3E"),
+            radial-gradient(
+                ellipse at top,
+                rgb(255 241 216 / 0) 0%,
+                rgb(0 0 0 / 0.08) 100%
+            );
+        background-attachment: fixed;
+        background-size:
+            180px 180px,
+            100% 100%;
+    }
+    body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 0;
+        background-image: var(--scanlines);
+        mix-blend-mode: screen;
+    }
+    #__next {
+        position: relative;
+        z-index: 1;
+    }
+    ::selection {
+        background-color: var(--selection);
+        color: var(--selection-foreground);
+    }
+    h1,
+    h2,
+    h3,
+    h4 {
+        @apply font-heading text-foreground;
+    }
+}
+
+@utility marginalia {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted-foreground);
+}
+
+@utility font-display {
+    font-variation-settings:
+        "opsz" 144,
+        "SOFT" 60,
+        "WONK" 1;
+}
+
+@utility font-display-soft {
+    font-variation-settings:
+        "opsz" 144,
+        "SOFT" 100,
+        "WONK" 1;
+}
