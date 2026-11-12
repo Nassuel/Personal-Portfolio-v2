@@ -1,9 +1,10 @@
+import "@/styles/globals.css";
 import type { AppProps } from "next/app";
-import Layout from "../components/layouts/main";
-import Fonts from "../components/fonts";
 import { AnimatePresence } from "framer-motion";
-import Chakra from "../components/chakra";
 import { Analytics } from "@vercel/analytics/react";
+import Layout from "@/components/layouts/main";
+import ThemeProvider from "@/components/theme-provider";
+import { fontVariablesCss } from "@/lib/fonts";
 
 if (typeof window !== "undefined") {
     window.history.scrollRestoration = "manual";
@@ -11,23 +12,21 @@ if (typeof window !== "undefined") {
 
 function Website({ Component, pageProps, router }: AppProps) {
     return (
-        <Chakra>
-            <Fonts />
+        <ThemeProvider>
+            <style jsx global>
+                {fontVariablesCss}
+            </style>
             <Layout router={router}>
                 <AnimatePresence
                     mode="wait"
                     initial={true}
-                    onExitComplete={() => {
-                        if (typeof window !== "undefined") {
-                            window.scrollTo({ top: 0 });
-                        }
-                    }}
+                    onExitComplete={() => window.scrollTo({ top: 0 })}
                 >
                     <Component {...pageProps} key={router.route} />
                 </AnimatePresence>
                 <Analytics />
             </Layout>
-        </Chakra>
+        </ThemeProvider>
     );
 }
 
