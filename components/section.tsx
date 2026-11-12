@@ -1,8 +1,5 @@
 import type { ReactNode } from "react";
 import { motion } from "framer-motion";
-import { Box } from "@chakra-ui/react";
-
-const MotionBox = motion.create(Box);
 
 interface SectionProps {
     children: ReactNode;
@@ -10,18 +7,14 @@ interface SectionProps {
 }
 
 const Section = ({ children, delay = 0 }: SectionProps) => (
-    <MotionBox
+    <motion.div
         initial={{ y: 18, opacity: 0, filter: "blur(6px)" }}
         animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
-        transition={{
-            duration: 0.9,
-            delay,
-            ease: [0.16, 1, 0.3, 1]
-        }}
-        mb={10}
+        transition={{ duration: 0.9, delay, ease: [0.16, 1, 0.3, 1] }}
+        className="mb-10"
     >
         {children}
-    </MotionBox>
+    </motion.div>
 );
 
 export default Section;
