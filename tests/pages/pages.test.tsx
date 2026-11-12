@@ -29,7 +29,7 @@ describe("Home", () => {
 describe("About", () => {
     it("lists every role, degree and certification from the data", () => {
         render(<About />);
-        expect(document.title).toBe("About - NVC");
+        expect(document.title).toBe("About - NNVC");
         expect(headings(2)).toEqual([
             "Work Experience",
             "Education",
@@ -61,7 +61,7 @@ describe("About", () => {
 describe("project pages", () => {
     it("shows client work on Freelancing", () => {
         render(<Freelancing />);
-        expect(document.title).toBe("Freelancing - NVC");
+        expect(document.title).toBe("Freelancing - NNVC");
         expect(headings(1)).toEqual(["Freelancing"]);
         const freelance = projects.filter(
             project => project.category === "freelance"
@@ -73,7 +73,7 @@ describe("project pages", () => {
 
     it("shows academic and personal work on Personal Projects", () => {
         render(<PersonalProjects />);
-        expect(document.title).toBe("Personal Projects - NVC");
+        expect(document.title).toBe("Personal Projects - NNVC");
         expect(headings(2)).toEqual(["Academic Work", "Personal"]);
     });
 });
