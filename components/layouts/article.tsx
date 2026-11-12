@@ -28,7 +28,7 @@ const Layout = ({ children, title }: LayoutProps) => {
                 {title && (
                     <Head>
                         <title>{t}</title>
-                        <meta property="og:title" content={t} />
+                        <meta property="og:title" content={t} key="og:title" />
                     </Head>
                 )}
                 {children}
